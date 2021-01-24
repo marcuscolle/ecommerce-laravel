@@ -24,8 +24,38 @@ Class Cart
  
         }else{
 
+            $this->items = [];
+            $this->totalQuantity = 0;
+            $this->totalPrice = 0;
+
 
         }
+
+
+    }
+
+    public function addItem($id, $product)
+    {
+
+        $price = (int) str_replace("$","", $this->product->price);
+
+
+        //the item already exists
+        if(array_key_exists($id, $this->items)){
+
+            $productToAdd = $this->items->$id;
+            $productToAdd['quanitity']++; 
+
+            //first time to add this product to cart
+        }else{
+
+            $productToAdd = ['quantity'=> 1, 'prie' => $price, 'data'=> $product];
+
+        }
+
+        $this->items->id = $productToAdd;
+        $this->totalQuantity++;
+        $this->totalPrice = $this->totalPrice + $price;
 
 
     }
