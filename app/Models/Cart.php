@@ -37,7 +37,7 @@ Class Cart
     public function addItem($id, $product)
     {
 
-        $price = (int) str_replace("$","", $this->product->price);
+        $price = (int) str_replace("£","", $this->product->price);
 
 
         //the item already exists
@@ -49,7 +49,7 @@ Class Cart
             //first time to add this product to cart
         }else{
 
-            $productToAdd = ['quantity'=> 1, 'prie' => $price, 'data'=> $product];
+            $productToAdd = ['quantity'=> 1, 'price' => $price, 'data'=> $product];
 
         }
 
