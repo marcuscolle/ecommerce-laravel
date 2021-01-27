@@ -25,3 +25,7 @@ Route::get('/products', [App\Http\Controllers\ProductController::class, 'index']
 
 //route to add product to the cart by id
 Route::get('product/addToCart/{id}', [App\Http\Controllers\ProductController::class, 'addProductToCart'])->name('AddToCartProduct');
+
+// Cart items
+
+Route::get('cart', [App\Http\Controllers\ProductController::class, 'showCart'])->name('cartProducts');

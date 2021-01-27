@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use Illuminate\Support\Arr;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -8,20 +9,24 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 
-Class Cart 
+Class Cart
 {
     public $items;
     public $totalQuantity;
     public $totalPrice;
 
 
-    public function __contruct($prevCart)
+    /**
+     * Cart constructor.
+     * @param $prevCart
+     */
+    public function __construct($prevCart)
     {
         if($prevCart != null){
             $this->items = $prevCart->items;
             $this->totalQuantity = $prevCart->totalQuantity;
             $this->totalPrice = $prevCart->totalPrice;
- 
+
         }else{
 
             $this->items = [];
@@ -37,14 +42,16 @@ Class Cart
     public function addItem($id, $product)
     {
 
-        $price = (int) str_replace("£","", $this->product->price);
+        $price = (int)str_replace("£","", $product->price);
+
 
 
         //the item already exists
-        if(array_key_exists($id, $this->items)){
+        if(Arr::exists($this->items, $id)){
 
-            $productToAdd = $this->items->$id;
-            $productToAdd['quanitity']++; 
+
+            $productToAdd = $this->items;
+            $productToAdd['quantity']++;
 
             //first time to add this product to cart
         }else{
@@ -53,7 +60,7 @@ Class Cart
 
         }
 
-        $this->items->id = $productToAdd;
+        $this->items = $productToAdd;
         $this->totalQuantity++;
         $this->totalPrice = $this->totalPrice + $price;
 

@@ -29,6 +29,8 @@ class Product extends Model
         $newForm = "£". $value;
         return $newForm;
     }
+
+
 }
 
 
