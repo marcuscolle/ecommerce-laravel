@@ -28,4 +28,4 @@ Route::get('product/addToCart/{id}', [App\Http\Controllers\ProductController::cl
 
 // Cart items
 
-Route::get('cart', [App\Http\Controllers\ProductController::class, 'showCart'])->name('cartProducts');
+Route::get('cart', [App\Http\Controllers\ProductController::class, 'showCart'])->name('cartproducts');

@@ -42,15 +42,15 @@ Class Cart
     public function addItem($id, $product)
     {
 
-        $price = (int)str_replace("£","", $product->price);
+        $price = str_replace("£","", $product->price);
 
 
 
         //the item already exists
-        if(Arr::exists($this->items, $id)){
+        if(Arr::exists($this->items ,$id)){
 
 
-            $productToAdd = $this->items;
+            $productToAdd = $this->items[$id];
             $productToAdd['quantity']++;
 
             //first time to add this product to cart
@@ -60,7 +60,7 @@ Class Cart
 
         }
 
-        $this->items = $productToAdd;
+        $this->items[$id] = $productToAdd;
         $this->totalQuantity++;
         $this->totalPrice = $this->totalPrice + $price;
 

@@ -115,18 +115,31 @@ class ProductController extends Controller
 
         // dump($cart);
 
-        return redirect()->route('products');
+         return redirect()->route('products');
 
 
 
     }
 
-    public function showCart($cart)
+    public function showCart()
     {
 
-        Session::get('cart');
+       $cart = Session::get('cart');
 
-       dump($cart);
+       //cart not empty
+       if($cart){
+
+       // dump($cart);
+       return view('cartproducts', ['cartItems' => $cart]);
+
+       // cart empty
+       }else{
+
+       return redirect()->route('products');
+
+       }
+
+
 
 
     }
