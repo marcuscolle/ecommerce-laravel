@@ -19,8 +19,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// authentication
 Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+
+// Products route
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
 
 //route to add product to the cart by id

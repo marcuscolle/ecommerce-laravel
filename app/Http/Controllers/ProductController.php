@@ -166,23 +166,6 @@ class ProductController extends Controller
         
 
         return redirect()->route('cartproducts');
-    
-
-/*------------------
-
-        // after delete the item in cart
-        // the cart must be updated such as price, quantity ...
-        $prevCart = $request->session()->get('cart');
-        $updateCart = new Cart($prevCart);
-        $updateCart->updatePriceAndQuantity();
-
-        $request->session()->put('cart', $updateCart);
-
-        return redirect()->route('cartproducts');
-
-    }
-
----------------------------*/
     }
 
 

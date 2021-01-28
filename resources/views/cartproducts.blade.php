@@ -16,6 +16,9 @@
         <div class="table-responsive cart_info">
             <table class="table table-condensed">
                 <thead>
+
+                    Hello, <strong>{{ $userData->name }}.</strong> Ready to complete your shopping?
+
                     <tr class="cart_menu">
                         <td class="image">Item</td>
                         <td class="description"></td>

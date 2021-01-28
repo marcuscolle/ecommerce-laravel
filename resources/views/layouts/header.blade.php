@@ -57,7 +57,7 @@
 				<div class="row">
 					<div class="col-md-4 clearfix">
 						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+							<a href="{{ route('products') }}"><img src="images/home/logo.png" alt="" /></a>
 						</div>
 						<div class="btn-group pull-right clearfix">
 							<div class="btn-group">
@@ -93,7 +93,14 @@
 								
 								<!---CART LINK ICON ---->
 								<li><a href="{{ route('cartproducts') }}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+								
+						<!-------auth if statment if user is logged in go to profile page else login page---------->		
+								@if(Auth::check())
+								<li><a href="/home"><i class="fa fa-lock"></i>Profile</a></li>
+								@else 
+								<li><a href="/login"><i class="fa fa-lock"></i> Login</a></li>
+								@endif
+
 							</ul>
 						</div>
 					</div>
