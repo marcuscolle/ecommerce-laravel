@@ -27,5 +27,7 @@ Route::get('/products', [App\Http\Controllers\ProductController::class, 'index']
 Route::get('product/addToCart/{id}', [App\Http\Controllers\ProductController::class, 'addProductToCart'])->name('AddToCartProduct');
 
 // Cart items
-
 Route::get('cart', [App\Http\Controllers\ProductController::class, 'showCart'])->name('cartproducts');
+
+// delete item from cart
+Route::get('product/deleteItemFromCart/{id}', [App\Http\Controllers\ProductController::class, 'deleteItemFromCart'])->name('deleteItemFromCart');

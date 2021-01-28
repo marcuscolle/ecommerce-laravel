@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Session;
 
+use Illuminate\Support\Arr;
+
 use Illuminate\Support\Facades\DB;
 
 
@@ -143,6 +145,29 @@ class ProductController extends Controller
 
 
     }
+
+/*------
+    public function deleteItemFromCart( Request $request, $id)
+    {
+        $cart = $request->session()->get('cart');
+
+        if(Arr::exists($id, $cart->items)){
+            unset($cart->items[$id]);  //easy way to delete arrays
+        }
+
+        // after delete the item in cart
+        // the cart must be updated such as price, quantity ...
+        $prevCart = $request->session()->get('cart');
+        $updateCart = new Cart($prevCart);
+        $updateCart->updatePriceAndQuantity();
+
+        $request->session()->put('cart', $updateCart);
+
+        return redirect()->route('cartproducts');
+
+    }
+
+-------*/
 
 
 
