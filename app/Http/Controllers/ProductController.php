@@ -146,14 +146,29 @@ class ProductController extends Controller
 
     }
 
-/*------
+
     public function deleteItemFromCart( Request $request, $id)
     {
         $cart = $request->session()->get('cart');
 
-        if(Arr::exists($id, $cart->items)){
+        if(Arr::exists($cart->items, $id)){
             unset($cart->items[$id]);  //easy way to delete arrays
         }
+
+        // after delete the item in cart
+        // the cart must be updated such as price, quantity ...
+        $prevCart = $request->session()->get('cart');
+        $updateCart = new Cart($prevCart);
+        $updateCart->updatePriceAndQuantity();
+
+        $request->session()->put('cart', $updateCart);
+
+        
+
+        return redirect()->route('cartproducts');
+    
+
+/*------------------
 
         // after delete the item in cart
         // the cart must be updated such as price, quantity ...
@@ -167,7 +182,9 @@ class ProductController extends Controller
 
     }
 
--------*/
+---------------------------*/
+    }
+
 
 
 

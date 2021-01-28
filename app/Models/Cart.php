@@ -68,7 +68,6 @@ Class Cart
 
     }
 
-/*------------
     public function updatePriceAndQuantity()
     {
         $totalPrice = 0;
@@ -85,7 +84,6 @@ Class Cart
 
     }
 
---------------*/
 
 
 }
