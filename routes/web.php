@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,13 @@ Route::get('cart', [App\Http\Controllers\ProductController::class, 'showCart'])-
 
 // delete item from cart
 Route::get('product/deleteItemFromCart/{id}', [App\Http\Controllers\ProductController::class, 'deleteItemFromCart'])->name('deleteItemFromCart');
+
+// Admin Panel
+// Route::get('admin/products', [App\Http\Controllers\AdminProductsContoller::class, 'index'])->name('adminDisplayProducts');
+Route::get('admin/products', [App\Http\Controllers\AdminProductsController::class, 'index'])->name('adminDisplayProducts');
+
+// Display Edit Product From
+Route::get('admin/editProductForm', [App\Http\Controllers\AdminProductsController::class, 'editProductForm'])->name('adminEditProductForm');
+
+// Display Product Image Form
+Route::get('admin/editProductImageForm', [App\Http\Controllers\AdminProductsController::class, 'editProductImageForm'])->name('adminEditProductImageForm');
