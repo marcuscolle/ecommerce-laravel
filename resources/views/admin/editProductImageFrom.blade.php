@@ -6,11 +6,12 @@
         <div>
             <img src="{{asset('storage')}}/product_images/{{$product['image'] }}">
 
-            <form action="/admin/updateImage/{{$product->id }}" method="post" enctype="multipart/form-data">
+            <form action="{{route('adminUpdateProductImage', ['id'=>$product->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
+                               
 
                 <div class="form-group"> 
-                    <label for="description">Update Image</label>
+                    <label for="image">Update Image</label>
                     <input type="file" name="image" id="image" placeholder="image" value="{{ $product->image }} required">    
                 </div>
 
