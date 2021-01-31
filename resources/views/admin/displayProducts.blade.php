@@ -1,11 +1,7 @@
 @include('layouts.header')
-
 @yield('center')
 
-
 <!-----dashboard must be edited--------------->
-
-
 <html>
     <body>
       <div class="table-responsive">
@@ -28,7 +24,7 @@
                 @foreach($products as $product)
                 <tr>
                     <td>{{ $product['id'] }}</td>
-                    <td><img src="{{ Storage::url($product['image']) }}" width="100" height="100"></td>
+                    <td><img src="{{ Storage::url("product_images/" . $product['image']) }}" width="100" height="100"></td>
                     <td>{{ $product['name'] }}</td>
                     <td>{{ $product['description'] }}</td>
                     <td>{{ $product['price'] }}</td>
