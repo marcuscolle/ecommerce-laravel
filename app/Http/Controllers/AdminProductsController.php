@@ -25,7 +25,7 @@ class AdminProductsController extends Controller
     public function editProductForm($id)
     {
         $product = Product::find($id);
-        return view('admin.editProductFrom', ['product' => $product]);
+        return view('admin.editProductForm', ['product' => $product]);
     }
 
         //display edit product image form

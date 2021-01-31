@@ -43,7 +43,7 @@ Route::get('product/deleteItemFromCart/{id}', [App\Http\Controllers\ProductContr
 Route::get('admin/products', [App\Http\Controllers\AdminProductsController::class, 'index'])->name('adminDisplayProducts');
 
 // Display Edit Product From
-Route::get('admin/editProductForm', [App\Http\Controllers\AdminProductsController::class, 'editProductForm'])->name('adminEditProductForm');
+Route::get('admin/editProductForm/{id}', [App\Http\Controllers\AdminProductsController::class, 'editProductForm'])->name('adminEditProductForm');
 
 // Display Product Image Form
-Route::get('admin/editProductImageForm', [App\Http\Controllers\AdminProductsController::class, 'editProductImageForm'])->name('adminEditProductImageForm');
+Route::get('admin/editProductImageForm/{id}', [App\Http\Controllers\AdminProductsController::class, 'editProductImageForm'])->name('adminEditProductImageForm');

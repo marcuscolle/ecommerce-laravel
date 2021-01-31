@@ -24,6 +24,10 @@
                 @foreach($products as $product)
                 <tr>
                     <td>{{ $product['id'] }}</td>
+
+                    <!----other way to display the image would be
+                      {sset('storage')} / product_images / {$product['image']}
+                    ----->
                     <td><img src="{{ Storage::url("product_images/" . $product['image']) }}" width="100" height="100"></td>
                     <td>{{ $product['name'] }}</td>
                     <td>{{ $product['description'] }}</td>
