@@ -17,7 +17,11 @@
             <table class="table table-condensed">
                 <thead>
 
+                    @if(Auth::user())
                     Hello, <strong>{{ $userData->name }}.</strong> Ready to complete your shopping?
+                    @else
+                    Hello! Ready to complete your shopping?
+                    @endif
 
                     <tr class="cart_menu">
                         <td class="image">Item</td>

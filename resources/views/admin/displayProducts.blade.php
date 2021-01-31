@@ -1,9 +1,15 @@
+@include('layouts.header')
+
+@yield('center')
+
+
 <!-----dashboard must be edited--------------->
+
 
 <html>
     <body>
       <div class="table-responsive">
-        <table class="table table-striped">
+        <table class="table table-hover">
             <thead>
                 <tr>
                   <th>#id</th>
@@ -42,4 +48,5 @@
     </body>
 </html>
 
+@include('layouts.footer')
 
