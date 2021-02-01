@@ -67,8 +67,8 @@ class AdminProductsController extends Controller
             //Storing image with user original name and extention in the local driver
             $request->image->storeAs('public/product_images/', $imageName);
             
-            // passing $imageUpdate to array as the eloquent update function work as an array
-            // then pass $imageName as value to save in the db as original nae
+            // creating $imageUpdate as an array as the eloquent update function expect an array
+            // then pass $imageName as value to save in the db as original image name
             $imageUpdate = array('image' => $imageName);
             // updating image name in the DB.
             Product::findOrFail($id)->update($imageUpdate);
