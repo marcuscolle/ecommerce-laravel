@@ -42,9 +42,10 @@ class AdminProductsController extends Controller
         // Update Product Image
     public function updateProductImage(Request $request, $id)
     {
-       # Validator::make($request->all(),['image'=>"required|image|mimes: jpg, jpeg, png, bmp, gif, svg, webp| max:5000"])->validate();
+        # Validator::make($request->all(),['image'=>"required|image|mimes: jpg, jpeg, png, bmp, gif, svg, webp| max:5000"])->validate();
+        
         $request->validate([
-            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:5000'
+            'image' => 'required|mimes:jpg,png,jpeg,gif,svg|max:5000'
         ]);
 
 
@@ -59,21 +60,19 @@ class AdminProductsController extends Controller
                 Storage::delete('public/product_images/' . $product->image );
 
             }
-            //until delete the function its working fine, after that its not saving a new one on the database and local.
-
-
             //upload new image
-                //file extension
-            $ext = $request->file('image')->getClientOriginalExtension();
                 
-            //Storing image with user original name and extention in the DB.
-            $request->image->storeAs('public/storage/product_images/' . $product->image . $ext);
-             
-            $imageUpdate = array('image' => $product->image);
-            DB::table('products')->where('id', $id)->update($imageUpdate);
-           
-            # Product::where('id', $id)->update($request->except(['_token', '_method']));
+            // requesting the image = file  with original name    
+            $imageName = $request->file('image')->getClientOriginalName();     
+            //Storing image with user original name and extention in the local driver
+            $request->image->storeAs('public/product_images/', $imageName);
             
+            // passing $imageUpdate to array as the eloquent update function work as an array
+            // then pass $imageName as value to save in the db as original nae
+            $imageUpdate = array('image' => $imageName);
+            // updating image name in the DB.
+            Product::findOrFail($id)->update($imageUpdate);
+                      
             return redirect()->route('adminDisplayProducts');
 
             
