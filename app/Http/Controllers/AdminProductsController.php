@@ -113,6 +113,68 @@ class AdminProductsController extends Controller
 
     }
 
+    // Create Product Form
+
+    public function createProductForm()
+    {
+        return view("admin.createProductForm"); 
+
+    }
+
+
+    // Create New Product 
+
+    public function newProductForm(Request $request)
+    {
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $price =  $request->input('price');
+        $type = $request->input('type');
+
+        $request->validate(['image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:5000']);
+        $imageName = $request->file('image')->getClientOriginalName();
+        $imageEncoded = File::get($request->image);
+
+        Storage::disk('local')->put('public/product_images/'.$imageName, $imageEncoded);
+
+        $newProductArray = array('name' => $name,
+                                 'description' => $description,
+                                 'price' => $price,
+                                 'type' => $type,
+                                 'image' => $imageName );
+
+        $created = DB::table('products')->insert($newProductArray);
+
+        if($created){
+
+            return redirect()->route('adminDisplayProducts'); 
+        }else{
+            return "The product has not been created";
+        }    
+
+
+    }
+
+
+    public function deleteProduct($id){
+
+        $product = Product::find($id);
+
+        $exists = Storage::disk('local')->exists('public/product_images/'. $product->image);
+
+        // this if will delete the old image
+        if($exists){
+            Storage::delete('public/product_images/' . $product->image );
+
+        }
+
+        Product::destroy($id);
+
+        return redirect()->route('adminDisplayProducts');    
+
+
+    }
+
 
 
 

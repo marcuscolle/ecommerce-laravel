@@ -52,5 +52,16 @@ Route::get('admin/editProductImageForm/{id}', [App\Http\Controllers\AdminProduct
 Route::post('admin/updateProductImage/{id}', [App\Http\Controllers\AdminProductsController::class, 'updateProductImage'])->name('adminUpdateProductImage');
 
 // Update Product Details
-
 Route::post('admin/updateProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'updateProduct'])->name('adminUpdateProduct');
+
+
+
+// Display Create Product From
+Route::get('admin/createProductForm', [App\Http\Controllers\AdminProductsController::class, 'createProductForm'])->name('adminCreateProductForm');
+
+// Create New Product
+Route::post('admin/newProductForm', [App\Http\Controllers\AdminProductsController::class, 'newProductForm'])->name('adminNewProductForm');
+
+
+// Display Create Product From
+Route::get('admin/deleteProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'deleteProduct'])->name('adminDeleteProduct');

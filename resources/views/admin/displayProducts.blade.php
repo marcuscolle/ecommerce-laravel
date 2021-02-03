@@ -4,6 +4,17 @@
 <!-----dashboard must be edited--------------->
 <html>
     <body>
+
+      <div class="contaiener"> 
+        <div class="row">
+          <p> Insert A New Product </p>
+          <a href="/admin/createProductForm">Add a product</a>
+
+        </div>  
+      </div>
+
+
+
       <div class="table-responsive">
         <table class="table table-hover">
             <thead>
@@ -36,7 +47,7 @@
 
                     <td><a href="{{ route('adminEditProductImageForm', ['id' => $product['id']]) }}" class="btn btn-primary">Edit Image</td>
                     <td><a href="{{ route('adminEditProductForm', ['id' => $product['id']]) }}" class="btn btn-primary">Edit</td>
-                    <td><a href="#" class="btn btn-warning">Remove</td>     
+                    <td><a href="{{ route('adminDeleteProduct', ['id' => $product['id']]) }}" class="btn btn-warning">Remove</td>     
                    
                 </tr>
                 @endforeach  
