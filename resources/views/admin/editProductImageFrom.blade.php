@@ -1,5 +1,8 @@
-@include('layouts.header')
-@yield('center')
+<!--- extends layouts.app --- navbar with login and register added with laravel auth ---->
+@extends('layouts.app')
+
+@yield('content')
+@section('content')
 
 <div class="container">
     <div class="row">
@@ -11,8 +14,8 @@
                                
 
                 <div class="form-group"> 
-                    <label for="image">Update Image</label>
-                    <input type="file" name="image" id="image" placeholder="image" value="{{ $product->image }} required">    
+                    <label class="input-group-text" for="inputGroupFile01">Upload</label>
+                    <input type="file" class="form-control" name="image" id="image" placeholder="image" value="{{ $product->image }} required">    
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-default">Submit</button>
@@ -21,5 +24,4 @@
     </div>    
 </div>
 
-
-@include('layouts.footer')
+@endsection

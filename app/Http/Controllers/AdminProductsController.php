@@ -17,6 +17,8 @@ class AdminProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
         //display all products in admin page
@@ -25,12 +27,16 @@ class AdminProductsController extends Controller
         return view('admin.displayProducts', ['products' => $products]);
     }
 
+
+
         //display edit product form 
     public function editProductForm($id)
     {
         $product = Product::find($id);
         return view('admin.editProductForm', ['product' => $product]);
     }
+
+
 
         //display edit product image form
     public function editProductImageForm($id)
@@ -39,13 +45,15 @@ class AdminProductsController extends Controller
         return view('admin.editProductImageFrom', ['product' => $product]);
     }
 
+
+
         // Update Product Image
     public function updateProductImage(Request $request, $id)
     {
         # Validator::make($request->all(),['image'=>"required|image|mimes: jpg, jpeg, png, bmp, gif, svg, webp| max:5000"])->validate();
         
         $request->validate([
-            'image' => 'required|mimes:jpg,png,jpeg,gif,svg|max:5000'
+            'image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:5000'
         ]);
 
 
@@ -81,6 +89,36 @@ class AdminProductsController extends Controller
             $error = "No image has been uploaded!";
             return $error;
 
-        }
+        } 
     }
+
+
+        // Update Product Details
+    public function updateProduct (Request $request, $id )
+    {
+
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $price =  $request->input('price');
+        $type = $request->input('type');
+
+        $update = array('name' => $name,
+                        'description' => $description,
+                        'price' => $price,
+                        'type' => $type );
+
+        DB::table('products')->where('id', $id)->update($update);
+
+        return redirect()->route('adminDisplayProducts');
+
+    }
+
+
+
+
+
+
+
 }
+
+
