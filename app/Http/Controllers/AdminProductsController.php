@@ -156,7 +156,8 @@ class AdminProductsController extends Controller
     }
 
 
-    public function deleteProduct($id){
+    public function deleteProduct($id)
+    {
 
         $product = Product::find($id);
 

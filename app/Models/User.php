@@ -40,4 +40,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // function create to use in middleware RestrictAccess
+    //this function was created and will retun True or False
+    public function isAdmin()
+    {
+
+        //the admin is a colummn created inside user table
+        // the admin table will receive a bool/1 or 0.
+        // 1 = true , 0 = false
+        return $this->admin;
+    }
+
+
 }
