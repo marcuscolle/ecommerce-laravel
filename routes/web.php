@@ -16,12 +16,13 @@ use App\Http\Controllers\AdminProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+ # Route::get('/', function () {
+   # return view('welcome');
+  #});
 
 // authentication
 Auth::routes();
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -29,7 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 // Products route
-Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
 
 // Mens Page Route
 Route::get('products/men', [App\Http\Controllers\ProductController::class, 'menProducts'])->name('menProducts');
