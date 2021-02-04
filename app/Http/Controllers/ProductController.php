@@ -27,6 +27,8 @@ class ProductController extends Controller
         //use use Illuminate\Support\Facades\DB;
         // DB query of products table
 
+        // PAGINATION WILL BE ADDED!
+
         $products = Product::all();
 
         return view('allproducts', compact('products'));
@@ -54,6 +56,15 @@ class ProductController extends Controller
     }
 
 
+    public function search(Request $request)
+    {
+        $searchText = $request->get('searchText');
+        $products = Product::where('name', 'Like', $searchText."%")->paginate(10);
+
+        return view('allproducts', compact('products'));
+    }
+
+
     
     public function addProductToCart(Request $request, $id)
     {
@@ -76,8 +87,6 @@ class ProductController extends Controller
 
          return redirect()->route('products');
 
-
-
     }
 
     public function showCart()
@@ -97,9 +106,6 @@ class ProductController extends Controller
        return redirect()->route('products');
 
        }
-
-
-
 
     }
 

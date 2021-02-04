@@ -39,6 +39,11 @@ Route::get('products/women', [App\Http\Controllers\ProductController::class, 'wo
 
 
 
+//Search Box Router
+Route::get('search', [App\Http\Controllers\ProductController::class, 'search'])->name('searchProducts');
+
+
+
 
 
 
