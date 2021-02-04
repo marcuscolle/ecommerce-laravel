@@ -22,7 +22,8 @@ class AdminProductsController extends Controller
     public function index()
     {
         //display all products in admin page
-        $products = Product::all();
+        // 2 is the number os items displayed by page
+        $products = Product::paginate(2);
 
         return view('admin.displayProducts', ['products' => $products]);
     }

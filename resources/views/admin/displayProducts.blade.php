@@ -55,6 +55,10 @@
             </tbody>      
         
         </table>  
+
+        <!---- function links show pagination numbers and arrows to "turn the page"  ------->
+        {{$products->links()}}
+
       </div>
     </body>
 </html>
