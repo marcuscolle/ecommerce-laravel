@@ -603,4 +603,3 @@
 
 @include('layouts.footer')
 
-

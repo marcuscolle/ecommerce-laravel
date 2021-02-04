@@ -31,6 +31,18 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // Products route
 Route::get('/products', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
 
+// Mens Page Route
+Route::get('products/men', [App\Http\Controllers\ProductController::class, 'menProducts'])->name('menProducts');
+
+// women Page Route
+Route::get('products/women', [App\Http\Controllers\ProductController::class, 'womenProducts'])->name('womenProducts');
+
+
+
+
+
+
+
 //route to add product to the cart by id
 Route::get('product/addToCart/{id}', [App\Http\Controllers\ProductController::class, 'addProductToCart'])->name('AddToCartProduct');
 
@@ -75,3 +87,6 @@ Route::post('admin/newProductForm', [App\Http\Controllers\AdminProductsControlle
 
 // Delete Product
 Route::get('admin/deleteProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'deleteProduct'])->name('adminDeleteProduct')->middleware('restrictToAdmin');;
+
+
+

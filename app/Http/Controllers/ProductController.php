@@ -32,6 +32,28 @@ class ProductController extends Controller
         return view('allproducts', compact('products'));
     }
 
+    // men products function to filter all products type men
+    public function menProducts()
+    {
+        //query builder
+        //filtering mens products
+        // more type or columns can be added or filtered to the website
+        $products = DB::table('products')->where('type', 'Men')->get();
+
+        return view('menProducts', compact('products'));
+
+    }
+
+    // women products function to filter all products type women
+    public function womenProducts()
+    {
+        $products = DB::table('products')->where('type', 'Women')->get();
+
+        return view('womenProducts', compact('products'));
+
+    }
+
+
     
     public function addProductToCart(Request $request, $id)
     {
