@@ -16,13 +16,10 @@ use App\Http\Controllers\AdminProductController;
 |
 */
 
- # Route::get('/', function () {
-   # return view('welcome');
-  #});
-
 // authentication
 Auth::routes();
 
+//Login Panel
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -40,8 +37,10 @@ Route::get('products/women', [App\Http\Controllers\ProductController::class, 'wo
 
 
 
-//Search Box Router
+
+//Search Box Route
 Route::get('search', [App\Http\Controllers\ProductController::class, 'search'])->name('searchProducts');
+
 
 
 
@@ -57,6 +56,12 @@ Route::get('cart', [App\Http\Controllers\ProductController::class, 'showCart'])-
 
 // delete item from cart
 Route::get('product/deleteItemFromCart/{id}', [App\Http\Controllers\ProductController::class, 'deleteItemFromCart'])->name('deleteItemFromCart');
+
+// Cart Increase Quantity
+Route::get('product/increaseProduct/{id}', [App\Http\Controllers\ProductController::class, 'increaseProduct'])->name('IncreaseProduct');
+
+// Cart Decrease Quantity
+Route::get('product/decreaseProduct/{id}', [App\Http\Controllers\ProductController::class, 'decreaseProduct'])->name('DecreaseProduct');
 
 
 
@@ -78,6 +83,7 @@ Route::post('admin/updateProductImage/{id}', [App\Http\Controllers\AdminProducts
 
 // Update Product Details
 Route::post('admin/updateProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'updateProduct'])->name('adminUpdateProduct')->middleware('restrictToAdmin');;
+
 
 
 
