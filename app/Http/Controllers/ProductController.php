@@ -201,8 +201,7 @@ class ProductController extends Controller
 
     public function createOrder()
     {
-        
-             
+                    
         $cart = Session::get('cart');
              
 
@@ -219,22 +218,20 @@ class ProductController extends Controller
                 $item_price = str_replace("£","", $cart_item['data']['price']);
                 $newItemInCurrentOrder = array('item_id'=>$item_id, 'order_id'=>$order_id, 'item_name'=>$item_name, 'item_price'=>$item_price);
                 
-             #   dd($newItemInCurrentOrder);
+              #  dd($newItemInCurrentOrder);
                 
-                $created_order_items = DB::table('order_items')->insert($newItemInCurrentOrder);
+                $created_order_items = DB::table('order_items')->insertGetId($newItemInCurrentOrder);
                 
 
 
             }
 
-            // delete cart
-            Session::forget($cart);
-            Session::flush();
-            return redirect()->route('allproducts')->withsuccess('Thank you for choose us!');
+            
+            return redirect()->route('products')->withsuccess('Thank you for choose us!');
 
 
         }else{
-            return redirect()->route('allproducts');
+            return redirect()->route('products');
 
         }
 
