@@ -221,11 +221,11 @@ class ProductController extends Controller
               #  dd($newItemInCurrentOrder);
                 
                 $created_order_items = DB::table('order_items')->insertGetId($newItemInCurrentOrder);
-                
-
-
             }
 
+            // delete cart
+            # Session::forget($cart);
+            Session::flush();
             
             return redirect()->route('products')->withsuccess('Thank you for choose us!');
 
