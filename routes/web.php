@@ -66,6 +66,18 @@ Route::get('product/decreaseProduct/{id}', [App\Http\Controllers\ProductControll
 
 
 
+//Create Order
+Route::get('product/createOrder/', [App\Http\Controllers\ProductController::class, 'createOrder'])->name('createOrder');
+
+
+
+
+
+
+
+
+
+
 
 
 
