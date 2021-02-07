@@ -68,6 +68,37 @@ Class Cart
 
     }
 
+    public function removeItem($id, $product)
+    {
+
+        $price = str_replace("£","", $product->price);
+
+
+
+        //the item already exists
+        if(Arr::exists($this->items ,$id)){
+
+
+            $productToAdd = $this->items[$id];
+            $productToAdd['quantity']--;
+            $productToAdd['totalSinglePrice'] = $productToAdd['quantity'] * $price;
+
+            //first time to add this product to cart
+        }else{
+
+            $productToAdd = ['quantity'=> 1, 'totalSinglePrice' => $price, 'data'=> $product];
+
+        }
+
+        $this->items[$id] = $productToAdd;
+        $this->totalQuantity++;
+        $this->totalPrice = $this->totalPrice + $price;
+
+
+    }
+
+
+
     public function updatePriceAndQuantity()
     {
         $totalPrice = 0;
