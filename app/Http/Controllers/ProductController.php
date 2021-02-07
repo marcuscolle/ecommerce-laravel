@@ -201,8 +201,10 @@ class ProductController extends Controller
 
     public function createOrder()
     {
-        $cart = Session::get('cart');
         
+             
+        $cart = Session::get('cart');
+             
 
         if($cart){
             $date = date('Y-m-d H:i:s');
@@ -214,8 +216,11 @@ class ProductController extends Controller
             foreach($cart->items as $cart_item){
                 $item_id = $cart_item['data']['id'];
                 $item_name = $cart_item['data']['name'];
-                $item_price = $cart_item['data']['price'];
+                $item_price = str_replace("£","", $cart_item['data']['price']);
                 $newItemInCurrentOrder = array('item_id'=>$item_id, 'order_id'=>$order_id, 'item_name'=>$item_name, 'item_price'=>$item_price);
+                
+             #   dd($newItemInCurrentOrder);
+                
                 $created_order_items = DB::table('order_items')->insert($newItemInCurrentOrder);
                 
 
