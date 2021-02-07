@@ -135,16 +135,17 @@ class ProductController extends Controller
     public function increaseProduct(Request $request, $id)
     {
         //getting the cart.
-        $prevCart = $request->session->get('cart');
+        $prevCart = $request->session()->get('cart');
         //creating a new object.
         $cart = new Cart($prevCart);
 
         // using the id to get the information from the DB.
         $product = Product::find($id);
+        
         //cart object to add the same product inside the cart.
         $cart->addItem($id, $product);
         //updating a new item inside cart session.
-        $request->session->get('cart', $cart);
+        $request->session()->put('cart', $cart);
 
         return redirect()->route('cartproducts');
 
@@ -155,7 +156,7 @@ class ProductController extends Controller
     public function decreaseProduct(Request $request, $id)
     {
         $prevCart = $request->session()->get('cart');
-        $cart =  new Cart($prevCart);
+        $cart = new Cart($prevCart);
 
         if( $cart->items[$id]['quantity'] > 1 ){
             $product = Product::find($id);
