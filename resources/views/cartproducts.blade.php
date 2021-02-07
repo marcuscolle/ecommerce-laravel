@@ -86,7 +86,7 @@
                         <li>Total <span>£{{ $cartItems->totalPrice}} </span></li>
                     </ul>
                         <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="{{ route('createOrder') }}">Check Out</a>
+                        <a class="btn btn-default check_out" href="{{ route('checkoutproducts') }}">Check Out</a>
                 </div>
             </div>
         </div>

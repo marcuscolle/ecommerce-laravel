@@ -195,6 +195,13 @@ class ProductController extends Controller
 
     }
 
+    public function checkoutproducts()
+    {
+        // this view will be returned from checkout button inside cart's page
+        return view('checkoutproducts');
+
+    }
+
 
 
 
