@@ -165,16 +165,16 @@ class ProductController extends Controller
 
         if( $cart->items[$id]['quantity'] > 1 ){
 
-        // using the id to get the information from the DB.
-        $product = Product::find($id);
+            // using the id to get the information from the DB.
+            $product = Product::find($id);
         
-        //cart object to remove the same product inside the cart.
-        $cart->removeItem($id, $product);
-        //updating cart total price
-        $cart->updatePriceAndQuantity();        
+            //cart object to remove the same product inside the cart.
+            $cart->removeItem($id, $product);
+            //updating cart total price
+            $cart->updatePriceAndQuantity();        
         
-        //updating a new item inside cart session.
-        $request->session()->put('cart', $cart);
+            //updating a new item inside cart session.
+            $request->session()->put('cart', $cart);
 
         }
 
