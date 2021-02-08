@@ -2,7 +2,8 @@
 @include('layouts.app')
 
 
-
+<div class="container">
+    <div class="row">
         <form action="./createNewOrder" method="post">
             <div class="row">
                 <div class="col-md-6 mb-3">
@@ -73,7 +74,8 @@
                 <label class="custom-control-label" for="save-info">Save this information for next time</label>
             </div>
 
-            <button class="btn btn-default check_out" type="submit" name="submit" > Proceed To Payment</button>
+            <button class="btn btn-primary check_out" type="submit" name="submit" > Proceed To Payment</button>
 
         </form>  
-    
+    </div>
+</div>       
