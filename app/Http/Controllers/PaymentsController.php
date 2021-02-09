@@ -23,12 +23,12 @@ class PaymentsController extends Controller
     }
 
 
-    public function showPaymentPage()
+    public function paymentpage()
     {
         $cart = Session::get('cart');
 
         if($cart){
-            return view('payment.paumentpage', ['cartItems' => $cart]);
+            return view('payment.paymentpage', ['cartItems' => $cart]);
         }else{
             return redirect()->route("products");
         }
@@ -73,8 +73,11 @@ class PaymentsController extends Controller
             // delete cart
             # Session::forget($cart);
             Session::flush();
+
+            $payment_info = $newOrderArray;
+            $request->session()->put('payment_info', $payment_info);
             
-            return redirect()->route('products')->withsuccess('Thank you for choose us!');
+            return redirect()->route('paymentpage');
 
 
 

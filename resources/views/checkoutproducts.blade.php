@@ -4,7 +4,8 @@
 
 <div class="container">
     <div class="row">
-        <form action="./createNewOrder" method="post">
+        <form action="paymentpage" method="post">
+            @csrf
             <div class="row">
                 <div class="col-md-6 mb-3">
                 <label for="firstName">First name</label>
