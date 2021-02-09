@@ -234,7 +234,7 @@ class ProductController extends Controller
             # Session::forget($cart);
             Session::flush();
             
-            return redirect()->route('products')->withsuccess('Thank you for choose us!');
+            return redirect()->route('paymentpage');
 
 
         }else{
