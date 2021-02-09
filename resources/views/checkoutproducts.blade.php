@@ -57,8 +57,8 @@
                 </div>
                 </div>
                 <div class="col-md-3 mb-3">
-                <label for="zip">Postcode</label>
-                <input type="text" class="form-control" id="zip" placeholder="" required>
+                <label for="postcode">Postcode</label>
+                <input type="text" class="form-control" id="postcode" placeholder="" required>
                 <div class="invalid-feedback">
                     Post code required.
                 </div>

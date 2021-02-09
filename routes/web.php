@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminProductController;
+use App\http\Controllers\PaymentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,11 @@ Route::get('product/createOrder/', [App\Http\Controllers\ProductController::clas
 //Checkout w/details customer details form
 Route::get('product/checkoutproducts/', [App\Http\Controllers\ProductController::class, 'checkoutproducts'])->name('checkoutproducts');
 
+
+
+
+//Payment Page
+Route::get('payment/paymentpage/', [App\Http\Controllers\PaymentsController::class, 'paymentpage'])->name('paymentpage');
 
 
 
