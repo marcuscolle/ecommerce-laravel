@@ -201,8 +201,6 @@ class ProductController extends Controller
         return view('checkoutproducts');
 
     }
-
-
     
 
 
@@ -211,13 +209,13 @@ class ProductController extends Controller
                     
         $cart = Session::get('cart');
              
-
+        
         if($cart){
             $date = date('Y-m-d H:i:s');
             $newCartArray = array('status' => 'on_hold', 'date'=>$date,  'del_date'=>$date, 'price'=> $cart->totalPrice );
-            $created_order = DB::table('orders')->insert($newCartArray);
+            $created_order = DB::table('orders')->insertGetId($newCartArray);
             $order_id = DB::getPdo()->lastInsertId();
-
+            
 
             foreach($cart->items as $cart_item){
                 $item_id = $cart_item['data']['id'];
@@ -231,14 +229,16 @@ class ProductController extends Controller
             }
 
             // delete cart
-            # Session::forget($cart);
+            Session::forget('cart');
             Session::flush();
             
+            
             return redirect()->route('paymentpage');
+          #  return redirect()->route('checkoutproducts');
 
 
         }else{
-            return redirect()->route('products');
+          #  return redirect()->route('products');
 
         }
 

@@ -117,4 +117,20 @@ Class Cart
 
 
 
+
+    protected $fillable = [
+        'status',
+        'date',
+        'del_date',
+        'price',
+        'first_name',
+        'last_name',
+        'address',
+        'postcode',
+        'phone',
+        'email',                                   
+    ];
+
+
+
 }

@@ -13,6 +13,7 @@
               <li class="active">Shopping Cart</li>
             </ol>
         </div>
+
         <div class="table-responsive cart_info">
             <table class="table table-condensed">
                 <thead>
@@ -87,11 +88,12 @@
                     </ul>
                         <a class="btn btn-default update" href="">Update</a>
                         <a class="btn btn-default check_out" href="{{ route('checkoutproducts') }}">Check Out</a>
+                        
+                        <!-------- route('checkoutproducts')------>
                 </div>
             </div>
-        </div>
     </div>
-</section><!--/#do_action-->
+</section><!-----/#do_action-->
 
 
 @include('layouts.footer')

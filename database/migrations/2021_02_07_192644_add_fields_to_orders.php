@@ -16,7 +16,7 @@ class AddFieldsToOrders extends Migration
         Schema::table('orders', function (Blueprint $table) {
             $table->text('first_name');
             $table->text('last_name');
-            $table->text('adress');
+            $table->text('address');
             $table->text('postcode');
             $table->text('phone');
             $table->text('email');

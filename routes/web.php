@@ -75,10 +75,14 @@ Route::get('product/checkoutproducts/', [App\Http\Controllers\ProductController:
 
 
 
+//Create New Order
+Route::get('payment/createNewOrder/', [App\Http\Controllers\PaymentsController::class, 'createNewOrder'])->name('createNewOrder');
 
 //Payment Page
 Route::get('payment/paymentpage/', [App\Http\Controllers\PaymentsController::class, 'paymentpage'])->name('paymentpage');
 
+//Payment Receipt
+Route::get('payment/paymentreceipt/{paymenyID}/{payerID}', [App\Http\Controllers\PaymentsController::class, 'paymentreceipt'])->name('paymentreceipt');
 
 
 

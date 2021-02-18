@@ -28,35 +28,36 @@ class PaymentsController extends Controller
         $cart = Session::get('cart');
 
         if($cart){
+
             return view('payment.paymentpage', ['cartItems' => $cart]);
         }else{
-            return redirect()->route("products");
+           # return redirect()->route("products");
         }
-        Session::flush();
-
+    
 
     }
 
     public function createNewOrder(Request $request)
     {
-        $cart = Session::get('$cart');
+        $cart = Session::get('cart');
 
-        $firstname = $request->input('firstname');
-        $lastname = $request->input('lastname');
+        $first_name = $request->input('first_name');
+        $last_name = $request->input('last_name');
         $address = $request->input('address');
         $postcode = $request->input('postcode');
-        $country = $request->input('country');
+        $phone = $request->input('phone');
         $email = $request->input('email');
-
-
+ 
+        
         if($cart){
-            $date = date('Y-m-d H:is');
+            $date = date('Y-m-d H:i:s');
             $newOrderArray = array('status' => 'on_hold', 'date'=>$date,  'del_date'=>$date, 'price'=> $cart->totalPrice,
-                                   'firstname' => $firstname, 'lastname' => $lastname, 'address' => $address, 'postcode' => $postcode,
-                                    'country' => $country, 'email' => $email);
+                                   'first_name' => $first_name, 'last_name' => $last_name, 'address' => $address, 'postcode' => $postcode,
+                                    'phone' => $phone, 'email' => $email);
 
-
-            $created_order = DB::table('orders')->insert($newOrderArray);
+            
+                                   
+            $created_order = DB::table('orders')->insertGetId($newOrderArray);
             $order_id = DB::getPdo()->lastInsertId();
 
             foreach($cart->items as $cart_item){
@@ -65,17 +66,20 @@ class PaymentsController extends Controller
                 $item_price = str_replace("£","", $cart_item['data']['price']);
                 $newItemInCurrentOrder = array('item_id'=>$item_id, 'order_id'=>$order_id, 'item_name'=>$item_name, 'item_price'=>$item_price);
                 
-              #  dd($newItemInCurrentOrder);
+                #dd($newItemInCurrentOrder);
                 
                 $created_order_items = DB::table('order_items')->insertGetId($newItemInCurrentOrder);
             }
 
             // delete cart
-            # Session::forget($cart);
+            Session::forget('cart');
             Session::flush();
 
             $payment_info = $newOrderArray;
+            $payment_info['order_id'] = $order_id;   
             $request->session()->put('payment_info', $payment_info);
+            
+            
             
             return redirect()->route('paymentpage');
 
@@ -85,7 +89,111 @@ class PaymentsController extends Controller
             return redirect()->route('products');
         }
         
+     
 
+    }
+
+
+/*---------------- dont work with localhost only when live ------*/
+
+    public function validate_payment($paypalPaymentID, $paypalPayerID)
+    {
+        $paypalEnv = 'sandbox'; // or production = to go live
+        $paypalURL = 'https://api.sandbox.paypal.com/v1/';
+        $paypalClientID = getenv('PAYPAL_CLIENT_KEY');
+        $paypalSecret = getenv('PAYPAL_SECRET_KEY');
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $paypalURL.'oauth2/token');
+        curl_setopt($ch, CURLOPT_HEADER, false );
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
+        curl_setopt($ch, CURLOPT_POST, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_USERPWD, $paypalClientID .":". $paypalSecret);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, "grant_type=client_credentials" );
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        if(empty($response)){
+            return false;
+        }else{
+            $jsonData = json_decode($response);
+            $curl = curl_init($paypalURL.'payments/payment/'.$paypalPaymentID);
+            curl_setopt($ch, CURLOPT_HEADER, false );
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
+            curl_setopt($ch, CURLOPT_POST, false);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Autorization : Bearer'. $jsonData->access_token,
+                'Accept: application/json',
+                'Content-Type: application/xml'
+            ));
+            $response = curl_exec($curl);
+            curl_close($curl);
+
+            $result = json_decode($response);
+
+            return $result;
+
+
+        }
+ 
+    }
+
+
+
+
+
+    private function storePaymentInfo($paypalPaymentID, $paypalPayerID)
+    {
+        $payment_info = Session::get('payment_info');
+        $order_id = $payment_info['order_id'];
+        $status = $payment_info['status'];
+        $paypal_payer_id = $paypalPayerID;
+        $paypal_payment_id = $paypalPaymentID;
+
+        if($status == 'on_hold'){
+            $date = date('Y-m-d H:i:s');
+            $newPaymentArray = array('order_id'=>$order_id, 'date'=>$date, 
+                                     'amount'=>$payment_info['price'], 'paypal_payment_id'=>$paypal_payment_id,
+                                     'paypal_payer_id'=>$paypal_payer_id,
+                                    );
+
+            $create_order = DB::table('payments')->insert($newPaymentArray);
+
+
+        DB::table('orders')->where('order_id', $order_id)->update(['status'=> 'paid']);
+        }
+    }
+
+
+
+    public function paymentreceipt($paypalPaymentID, $paypalPayerID)
+    {
+
+        if(!empty($paypalPaymentID) && !empty($paypalPayerID)){
+            //will return json -> contais apreved transaction status
+            $this->validate_payment($paypalPaymentID, $paypalPayerID);
+            
+            $this->storePaymentInfo($paypalPaymentID, $paypalPayerID);
+
+            $payment_receipt = Session::get('payment_info');
+            $payment_receipt['paypal_payment_id'] = $paypalPaymentID; 
+            $payment_receipt['paypal_payer_id'] = $paypalPayerID;
+
+
+            Session::forget('payment_info');
+
+            return view('payment.paymentreceipt', ['payment_receipt'=>$payment_receipt]);
+
+
+
+
+        }else{
+            return redirect()->route('products');
+        }
+        
 
     }
 
