@@ -176,7 +176,7 @@ class PaymentsController extends Controller
         if(!empty($paypalPaymentID) && !empty($paypalPayerID)){
             //will return json -> contais apreved transaction status
         #   $this->validate_payment($paypalPaymentID, $paypalPayerID);        
-        #  $this->storePaymentInfo($paypalPaymentID, $paypalPayerID);
+            $this->storePaymentInfo($paypalPaymentID, $paypalPayerID);
 
             $payment_receipt = Session::get('payment_info');
             $payment_receipt['paypal_payment_id'] = $paypalPaymentID; 
