@@ -1,3 +1,6 @@
+@include('layouts.header')
+@yield('center')
+
 <div class="container">
     <div class="row">
         <div>
@@ -7,27 +10,27 @@
 
                 <div class="form-group"> 
                     <label for="name">Name:</label>
-                    <input type="text" name="name" id="name" placeholder="name" required>    
+                    <input class="form-control" type="text" name="name" id="name" placeholder="name" required>    
                 </div>
 
                 <div class="form-group"> 
-                    <label for="image1">Image</label>
-                    <input type="file" name="image" id="image" placeholder="image" reqwuired>    
+                    <label for="image1">Image:</label>
+                    <input class="form-control" type="file" name="image" id="image" placeholder="image" required>    
                 </div>
 
                 <div class="form-group"> 
                     <label for="description">Description:</label>
-                    <input type="text" name="description" id="description" placeholder="description" required>    
+                    <input class="form-control" type="text" name="description" id="description" placeholder="description" required>    
                 </div>
 
                 <div class="form-group"> 
                     <label for="price">Price:</label>
-                    <input type="text" name="price" id="price" placeholder="price" required>    
+                    <input class="form-control" type="text" name="price" id="price" placeholder="price" required>    
                 </div>
 
                 <div class="form-group"> 
                     <label for="type">Type:</label>
-                    <input type="text" name="type" id="type" placeholder="type" required>    
+                    <input class="form-control" type="text" name="type" id="type" placeholder="type" required>    
                 </div>
 
 
@@ -36,3 +39,6 @@
         </div>    
     </div>    
 </div>
+
+
+@include('layouts.footer')

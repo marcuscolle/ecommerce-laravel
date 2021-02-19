@@ -1,5 +1,6 @@
 <!--- extends layouts.app --- navbar with login and register added with laravel auth ---->
-@include('layouts.app')
+@include('layouts.header')
+@yield('center')
 
 
 <div class="container">
@@ -48,7 +49,7 @@
                 <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone" required>
             </div>
 
-                <div class="col-md-3 mb-3">
+                <div class="mb-3">
                 <label for="postcode">Postcode</label>
                 <input type="text" class="form-control" id="postcode" name="postcode" placeholder="" required>
                 <div class="invalid-feedback">
@@ -57,8 +58,12 @@
                 </div>
             </div>
             
-            <input type="submit" value="Submit">
+            <input class="btn btn-primary" type="submit" value="Submit">
 
         </form>  
     </div>
 </div>       
+
+
+
+@include('layouts.footer')

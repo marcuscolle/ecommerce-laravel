@@ -1,8 +1,7 @@
 <!--- extends layouts.app --- navbar with login and register added with laravel auth ---->
-@extends('layouts.app')
+@include('layouts.header')
+@yield('center')
 
-@yield('content')
-@section('content')
 
 <div class="container">
     <div class="row">
@@ -24,4 +23,4 @@
     </div>    
 </div>
 
-@endsection
+@include('layouts.footer')

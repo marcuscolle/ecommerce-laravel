@@ -27,7 +27,7 @@ class PaymentsController extends Controller
     {
         $payment_info = Session::get('payment_info');
 
-        if($payment_info){
+        if($payment_info['status'] == 'on_hold'){
 
             return view('payment.paymentpage', [ 'payment_info' => $payment_info]);
         }else{
@@ -164,7 +164,7 @@ class PaymentsController extends Controller
             $create_order = DB::table('payments')->insert($newPaymentArray);
 
 
-        DB::table('orders')->where('order_id', $order_id)->update(['status'=> 'paid']);
+            DB::table('orders')->where('order_id', $order_id)->update(['status'=> 'paid']);
         }
     }
 

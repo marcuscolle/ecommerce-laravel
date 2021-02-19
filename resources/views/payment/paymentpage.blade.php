@@ -1,21 +1,24 @@
 <!--------show each element of the items inside our cart---------->
 <!------ $item['data']['name']  = inside [] because is accessing an array otherwise would be use -> to access object ---->
-@include('layouts.app')
+<!--- extends layouts.app --- navbar with login and register added with laravel auth ---->
+@include('layouts.header')
+@yield('center')
 
 
-<section id="do_action">
+
     <div class="container">
-        
-            <div class="col-sm-6">
+        <div class="row">
+            <div class="col-lg">
                 <div class="total_area">
-                    <p> {{ $payment_info['status']}}</p>
-                    <p> {{ $payment_info['price'] }}</p>
-                    <a class="btn btn-primary" id="paypal-button">Pay Now! </a>
+                    <p>Payment Status: Not Paid Yet! /{{ $payment_info['status']}}</p>
+                    <p>Total: £{{ $payment_info['price'] }}</p>
+                    <a class="btn" id="paypal-button">Pay Now! </a>
                 </div>
             </div>
+          </div>  
         </div>
     </div>
-</section><!--/#do_action-->
+
 
 
 
@@ -65,3 +68,7 @@
   }, '#paypal-button');
 
 </script>
+
+
+
+@include('layouts.footer')
