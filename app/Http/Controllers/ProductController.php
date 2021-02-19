@@ -203,7 +203,7 @@ class ProductController extends Controller
     }
     
 
-
+/*-----------------------------------------------
     public function createOrder()
     {
                     
@@ -243,7 +243,7 @@ class ProductController extends Controller
         }
 
     }
-
+---------------------------------------------------------*/
 
 
 

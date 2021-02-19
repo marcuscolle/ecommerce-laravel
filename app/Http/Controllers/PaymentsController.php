@@ -25,11 +25,11 @@ class PaymentsController extends Controller
 
     public function paymentpage()
     {
-        $cart = Session::get('cart');
+        $payment_info = Session::get('payment_info');
 
-        if($cart){
+        if($payment_info){
 
-            return view('payment.paymentpage', ['cartItems' => $cart]);
+            return view('payment.paymentpage', [ 'payment_info' => $payment_info]);
         }else{
            # return redirect()->route("products");
         }
@@ -72,7 +72,7 @@ class PaymentsController extends Controller
             }
 
             // delete cart
-            Session::forget('cart');
+           # Session::forget('cart');
             Session::flush();
 
             $payment_info = $newOrderArray;
@@ -99,7 +99,7 @@ class PaymentsController extends Controller
     public function validate_payment($paypalPaymentID, $paypalPayerID)
     {
         $paypalEnv = 'sandbox'; // or production = to go live
-        $paypalURL = 'https://api.sandbox.paypal.com/v1/';
+        $paypalURL = 'https://api.sandbox.paypal.com/v2/';
         $paypalClientID = getenv('PAYPAL_CLIENT_KEY');
         $paypalSecret = getenv('PAYPAL_SECRET_KEY');
 
@@ -120,9 +120,10 @@ class PaymentsController extends Controller
         }else{
             $jsonData = json_decode($response);
             $curl = curl_init($paypalURL.'payments/payment/'.$paypalPaymentID);
-            curl_setopt($ch, CURLOPT_HEADER, false );
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
+            
             curl_setopt($ch, CURLOPT_POST, false);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false );
+            curl_setopt($ch, CURLOPT_HEADER, false );
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Autorization : Bearer'. $jsonData->access_token,
@@ -174,9 +175,8 @@ class PaymentsController extends Controller
 
         if(!empty($paypalPaymentID) && !empty($paypalPayerID)){
             //will return json -> contais apreved transaction status
-            $this->validate_payment($paypalPaymentID, $paypalPayerID);
-            
-            $this->storePaymentInfo($paypalPaymentID, $paypalPayerID);
+        #   $this->validate_payment($paypalPaymentID, $paypalPayerID);        
+        #  $this->storePaymentInfo($paypalPaymentID, $paypalPayerID);
 
             $payment_receipt = Session::get('payment_info');
             $payment_receipt['paypal_payment_id'] = $paypalPaymentID; 
