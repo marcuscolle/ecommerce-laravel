@@ -207,8 +207,8 @@ class AdminProductsController extends Controller
     
     public function orders()
     {
-        $orders = DB::table('orders')->get();
-
+        $orders = DB::table('orders')->paginate(12);
+        
         return view('admin.orders', ['orders' => $orders]);
 
     }

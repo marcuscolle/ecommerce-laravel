@@ -37,11 +37,11 @@
                 </table>  
 
                 <!---- function links show pagination numbers and arrows to "turn the page"  ------->
-                <!-----$orders->links()----->
-
+                
               </div>
         </div>
+      
         <a class="btn brn-primary" href="{{ route('dashboard') }}"> Back </a>
-      </div>          
+      </div>   
     </body>
 </html>

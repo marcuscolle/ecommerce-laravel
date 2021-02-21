@@ -64,14 +64,10 @@ Route::get('product/increaseProduct/{id}', [App\Http\Controllers\ProductControll
 // Cart Decrease Quantity
 Route::get('product/decreaseProduct/{id}', [App\Http\Controllers\ProductController::class, 'decreaseProduct'])->name('DecreaseProduct');
 
-
-
-
-//Create Order
-# Route::get('product/createOrder/', [App\Http\Controllers\ProductController::class, 'createOrder'])->name('createOrder');
-
 //Checkout w/details customer details form
 Route::get('product/checkoutproducts/', [App\Http\Controllers\ProductController::class, 'checkoutproducts'])->name('checkoutproducts');
+
+
 
 
 
