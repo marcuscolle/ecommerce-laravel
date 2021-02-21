@@ -100,6 +100,9 @@ Route::get('admin/dashboard', [App\Http\Controllers\AdminProductsController::cla
 // Admin Display Orders
 Route::get('admin/orders', [App\Http\Controllers\AdminProductsController::class, 'orders'])->name('orders')->middleware('restrictToAdmin');
 
+// Admin Display Customers
+Route::get('admin/customers', [App\Http\Controllers\AdminProductsController::class, 'customers'])->name('customers')->middleware('restrictToAdmin');
+
 
 
 

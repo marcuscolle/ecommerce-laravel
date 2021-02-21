@@ -215,9 +215,9 @@ class AdminProductsController extends Controller
 
     public function customers()
     {
-        $orders = DB::table('orders')->get();
+        $customers = DB::table('orders')->get();
 
-        return view('admin.orders', ['orders' => $orders]);
+        return view('admin.customers', ['customers' => $customers]);
 
     }
 
