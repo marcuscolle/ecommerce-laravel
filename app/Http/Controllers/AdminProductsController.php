@@ -38,9 +38,6 @@ class AdminProductsController extends Controller
     }
 
 
-
-
-
         //display edit product form 
     public function editProductForm($id)
     {
@@ -204,6 +201,12 @@ class AdminProductsController extends Controller
 
     }
 
+
+
+
+
+    
+
     
     public function orders()
     {
@@ -218,6 +221,15 @@ class AdminProductsController extends Controller
         $customers = DB::table('orders')->get();
 
         return view('admin.customers', ['customers' => $customers]);
+
+    }
+
+
+    public function earnings()
+    {
+        $earnings = DB::table('payments')->sum('amount');
+
+        return view('admin.earnings', ['earnings' => $earnings]);
 
     }
 

@@ -99,6 +99,9 @@ Route::get('admin/orders', [App\Http\Controllers\AdminProductsController::class,
 // Admin Display Customers
 Route::get('admin/customers', [App\Http\Controllers\AdminProductsController::class, 'customers'])->name('customers')->middleware('restrictToAdmin');
 
+// Admin Display Earnings
+Route::get('admin/earnings', [App\Http\Controllers\AdminProductsController::class, 'earnings'])->name('earnings')->middleware('restrictToAdmin');
+
 
 
 
