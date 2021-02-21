@@ -19,21 +19,21 @@
                         <li><a href="index.html" class="active">Home</a></li>
                         <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="shop.html">Products</a></li>
-                                <li><a href="product-details.html">Product Details</a></li> 
-                                <li><a href="checkout.html">Checkout</a></li> 
-                                <li><a href="cart.html">Cart</a></li> 
-                                <li><a href="login.html">Login</a></li> 
+                                <li><a href="#">Products</a></li>
+                                <li><a href="#">Product Details</a></li> 
+                                <li><a href="#">Checkout</a></li> 
+                                <li><a href="#">Cart</a></li> 
+                                <li><a href="#">Login</a></li> 
                             </ul>
                         </li> 
                         <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="blog.html">Blog List</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
+                                <li><a href="#">Blog List</a></li>
+                                <li><a href="#">Blog Single</a></li>
                             </ul>
                         </li> 
-                        <li><a href="404.html">404</a></li>
-                        <li><a href="contact-us.html">Contact</a></li>
+                        <li><a href="#">404</a></li>
+                        <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -143,19 +143,39 @@
                             <h4 class="panel-title"><a href="{{ route('womenProducts') }}">Women</a></h4>
                         </div>
                     </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="#">Kids</a></h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="#">Accessories</a></h4>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title"><a href="#">Shoes</a></h4>
+                        </div>
+                    </div>
                 </div><!--/category-products-->
             
                 <div class="brands_products"><!--brands_products-->
                     <h2>Brands</h2>
                     <div class="brands-name">
                         <ul class="nav nav-pills nav-stacked">
-                            <li><a href="#"> <span class="pull-right">(50)</span>Acne</a></li>
-                            <li><a href="#"> <span class="pull-right">(56)</span>Grüne Erde</a></li>
-                            <li><a href="#"> <span class="pull-right">(27)</span>Albiro</a></li>
-                            <li><a href="#"> <span class="pull-right">(32)</span>Ronhill</a></li>
-                            <li><a href="#"> <span class="pull-right">(5)</span>Oddmolly</a></li>
-                            <li><a href="#"> <span class="pull-right">(9)</span>Boudestijn</a></li>
-                            <li><a href="#"> <span class="pull-right">(4)</span>Rösch creative culture</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Adidas</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Nike</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Puma</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>The Noth Face</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Polo</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Levis</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Super Dry</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Jack Jones</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Vans</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Gap</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Lacost</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Converse</a></li>                           
                         </ul>
                     </div>
                 </div><!--/brands_products-->
@@ -168,10 +188,12 @@
                     </div>
                 </div><!--/price-range-->
                 
-                <div class="shipping text-center"><!--shipping-->
+
+                <!-------------------------------------shipping
+                <div class="shipping text-center">
                     <img src="images/home/shipping.jpg" alt="" />
-                </div><!--/shipping-->
-            
+                </div>
+                ------------------------------------>
             </div>
         </div>
         
@@ -203,12 +225,6 @@
                                         <a href="{{route('AddToCartProduct', ['id'=>$product->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
                                 </div>
-                        </div>
-                        <div class="choose">
-                            <ul class="nav nav-pills nav-justified">
-                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                                <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
-                            </ul>
                         </div>
                     </div>
                 </div>
