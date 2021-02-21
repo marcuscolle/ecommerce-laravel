@@ -1,5 +1,5 @@
 <!--- extends layouts.app --- navbar with login and register added with laravel auth ---->
-@include('layouts.header')
+@include('layouts.admin')
 @yield('center')
 
 
@@ -17,10 +17,10 @@
                     <input type="file" class="form-control" name="image" id="image" placeholder="image" value="{{ $product->image }} required">    
                 </div>
 
-                <button type="submit" name="submit" class="btn btn-default">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <a class="btn brn-primary" href="{{ route('adminDisplayProducts') }}"> Back </a>
             </form>    
         </div>    
     </div>    
 </div>
 
-@include('layouts.footer')

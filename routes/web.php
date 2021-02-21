@@ -94,6 +94,19 @@ Route::get('payment/paymentreceipt/{paymenyID}/{payerID}', [App\Http\Controllers
 // Admin Panel  --> middleware to admin access the admin panel
 Route::get('admin/products', [App\Http\Controllers\AdminProductsController::class, 'index'])->name('adminDisplayProducts')->middleware('restrictToAdmin');
 
+// Admin Dashboard home
+Route::get('admin/dashboard', [App\Http\Controllers\AdminProductsController::class, 'dashboard'])->name('dashboard')->middleware('restrictToAdmin');
+
+// Admin Display Orders
+Route::get('admin/orders', [App\Http\Controllers\AdminProductsController::class, 'orders'])->name('orders')->middleware('restrictToAdmin');
+
+
+
+
+
+
+
+
 // Display Edit Product From
 Route::get('admin/editProductForm/{id}', [App\Http\Controllers\AdminProductsController::class, 'editProductForm'])->name('adminEditProductForm')->middleware('restrictToAdmin');;
 
@@ -105,9 +118,6 @@ Route::post('admin/updateProductImage/{id}', [App\Http\Controllers\AdminProducts
 
 // Update Product Details
 Route::post('admin/updateProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'updateProduct'])->name('adminUpdateProduct')->middleware('restrictToAdmin');;
-
-
-
 
 
 

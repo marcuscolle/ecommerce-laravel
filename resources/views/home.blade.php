@@ -22,7 +22,7 @@
                     <a href="{{ route('products') }}" class="btn btn-primary">Main Website </a>
                     
                     @if($userData->isAdmin())
-                        <a href="{{ route('adminDisplayProducts') }}" class="btn btn-primary"> Admin Panel </a>   
+                        <a href="{{ route('dashboard') }}" class="btn btn-primary"> Admin Panel </a>   
                     @else 
                         <div class="btn btn-primary">Admin Only </div>
                         

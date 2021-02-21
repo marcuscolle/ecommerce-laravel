@@ -202,49 +202,4 @@ class ProductController extends Controller
 
     }
     
-
-/*-----------------------------------------------
-    public function createOrder()
-    {
-                    
-        $cart = Session::get('cart');
-             
-        
-        if($cart){
-            $date = date('Y-m-d H:i:s');
-            $newCartArray = array('status' => 'on_hold', 'date'=>$date,  'del_date'=>$date, 'price'=> $cart->totalPrice );
-            $created_order = DB::table('orders')->insertGetId($newCartArray);
-            $order_id = DB::getPdo()->lastInsertId();
-            
-
-            foreach($cart->items as $cart_item){
-                $item_id = $cart_item['data']['id'];
-                $item_name = $cart_item['data']['name'];
-                $item_price = str_replace("£","", $cart_item['data']['price']);
-                $newItemInCurrentOrder = array('item_id'=>$item_id, 'order_id'=>$order_id, 'item_name'=>$item_name, 'item_price'=>$item_price);
-                
-              #  dd($newItemInCurrentOrder);
-                
-                $created_order_items = DB::table('order_items')->insertGetId($newItemInCurrentOrder);
-            }
-
-            // delete cart
-            Session::forget('cart');
-            Session::flush();
-            
-            
-            return redirect()->route('paymentpage');
-          #  return redirect()->route('checkoutproducts');
-
-
-        }else{
-          #  return redirect()->route('products');
-
-        }
-
-    }
----------------------------------------------------------*/
-
-
-
 }

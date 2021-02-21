@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.admin')
 @yield('center')
 
 <div class="container">
@@ -31,11 +31,9 @@
 
 
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <a class="btn brn-primary" href="{{ route('adminDisplayProducts') }}"> Back </a>
             </form>    
         </div>    
     </div>    
 </div>
 
-
-
-@include('layouts.footer')

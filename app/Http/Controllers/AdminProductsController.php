@@ -29,6 +29,17 @@ class AdminProductsController extends Controller
     }
 
 
+    ///Admin Dashboard page
+    public function dashboard()
+    {
+        return view('admin.dashboard');
+
+
+    }
+
+
+
+
 
         //display edit product form 
     public function editProductForm($id)
@@ -39,12 +50,16 @@ class AdminProductsController extends Controller
 
 
 
+
+
         //display edit product image form
     public function editProductImageForm($id)
     {
         $product = Product::find($id);
         return view('admin.editProductImageFrom', ['product' => $product]);
     }
+
+
 
 
 
@@ -94,6 +109,9 @@ class AdminProductsController extends Controller
     }
 
 
+
+
+
         // Update Product Details
     public function updateProduct (Request $request, $id )
     {
@@ -114,6 +132,9 @@ class AdminProductsController extends Controller
 
     }
 
+
+
+
     // Create Product Form
 
     public function createProductForm()
@@ -121,6 +142,9 @@ class AdminProductsController extends Controller
         return view("admin.createProductForm"); 
 
     }
+
+
+
 
 
     // Create New Product 
@@ -157,6 +181,9 @@ class AdminProductsController extends Controller
     }
 
 
+
+
+
     public function deleteProduct($id)
     {
 
@@ -174,6 +201,23 @@ class AdminProductsController extends Controller
 
         return redirect()->route('adminDisplayProducts');    
 
+
+    }
+
+    
+    public function orders()
+    {
+        $orders = DB::table('orders')->get();
+
+        return view('admin.orders', ['orders' => $orders]);
+
+    }
+
+    public function customers()
+    {
+        $orders = DB::table('orders')->get();
+
+        return view('admin.orders', ['orders' => $orders]);
 
     }
 
