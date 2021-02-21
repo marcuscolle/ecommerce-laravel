@@ -36,7 +36,7 @@
     // Customize button (optional)
     locale: 'en_US',
     style: {
-      size: 'small',
+      size: 'large',
       color: 'gold',
       shape: 'pill',
     },

@@ -30,8 +30,9 @@ class PaymentsController extends Controller
         if($payment_info['status'] == 'on_hold'){
 
             return view('payment.paymentpage', [ 'payment_info' => $payment_info]);
+        
         }else{
-           # return redirect()->route("products");
+            return redirect()->route("products");
         }
     
 

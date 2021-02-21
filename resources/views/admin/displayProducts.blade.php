@@ -1,4 +1,4 @@
-@include('layouts.header')
+@include('layouts.admin')
 @yield('center')
 
 <!-----dashboard must be edited--------------->
@@ -6,16 +6,6 @@
     <body>
       <div class="container">
         <div class="row">  
-
-              <div class="contaiener"> 
-                <div class="row">
-                  <p> Insert A New Product </p>
-                  <a href="/admin/createProductForm">Add a product</a>
-
-                </div>  
-              </div>
-
-
 
               <div class="table-responsive">
                 <table class="table table-hover">
@@ -39,7 +29,7 @@
                             <td>{{ $product['id'] }}</td>
 
                             <!----other way to display the image would be
-                              {sset('storage')} / product_images / {$product['image']}
+                              {asset('storage')} / product_images / {$product['image']}
                             ----->
                             <td><img src="{{ Storage::url("product_images/" . $product['image']) }}" width="100" height="100"></td>
                             <td>{{ $product['name'] }}</td>
@@ -49,7 +39,7 @@
 
                             <td><a href="{{ route('adminEditProductImageForm', ['id' => $product['id']]) }}" class="btn btn-primary">Edit Image</a></td>
                             <td><a href="{{ route('adminEditProductForm', ['id' => $product['id']]) }}" class="btn btn-primary">Edit</a></td>
-                            <td><a href="{{ route('adminDeleteProduct', ['id' => $product['id']]) }}" class="btn btn-warning">Remove</a></td>     
+                            <td><a href="{{ route('adminDeleteProduct', ['id' => $product['id']]) }}" class="btn btn-danger">Remove</a></td>     
                           
                         </tr>
                         @endforeach  
@@ -67,5 +57,4 @@
     </body>
 </html>
 
-@include('layouts.footer')
 
