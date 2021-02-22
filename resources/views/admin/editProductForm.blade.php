@@ -10,23 +10,33 @@
                 @csrf
 
                 <div class="form-group"> 
-                    <label for="description">Name:</label>
-                    <input class="form-control" type="text" name="name" id="name" placeholder="name" value="{{ $product->name }}" required>    
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" name="name" id="name" placeholder="name" required>    
+                </div>
+
+                <div class="form-group"> 
+                    <label for="image1">Image:</label>
+                    <input class="form-control" type="file" name="image" id="image" placeholder="image" required>    
                 </div>
 
                 <div class="form-group"> 
                     <label for="description">Description:</label>
-                    <input class="form-control" type="text" name="description" id="description" placeholder="description" value="{{ $product->description }}" required>    
+                    <input class="form-control" type="text" name="description" id="description" placeholder="description" required>    
                 </div>
 
                 <div class="form-group"> 
-                    <label for="description">Price:</label>
-                    <input class="form-control" type="text" name="price" id="price" placeholder="price" value="{{ $product->price }}" required>    
+                    <label for="price">Price:</label>
+                    <input class="form-control" type="text" name="price" id="price" placeholder="price" required>    
                 </div>
 
                 <div class="form-group"> 
-                    <label for="description">Type:</label>
-                    <input class="form-control" type="text" name="type" id="type" placeholder="type" value="{{ $product->type }}" required>    
+                    <label for="category">Category:</label>
+                    <input class="form-control" type="text" name="category" id="category" placeholder="Men / Womoen ..." required>    
+                </div>
+
+                <div class="form-group"> 
+                    <label for="brand">Brand:</label>
+                    <input class="form-control" type="text" name="brand" id="brand" placeholder="Nike / adidas ..." required>    
                 </div>
 
 

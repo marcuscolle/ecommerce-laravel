@@ -29,8 +29,13 @@
                 </div>
 
                 <div class="form-group"> 
-                    <label for="type">Type:</label>
-                    <input class="form-control" type="text" name="type" id="type" placeholder="type" required>    
+                    <label for="category">Category:</label>
+                    <input class="form-control" type="text" name="category" id="category" placeholder="Men / Womoen ..." required>    
+                </div>
+
+                <div class="form-group"> 
+                    <label for="brand">Brand:</label>
+                    <input class="form-control" type="text" name="brand" id="brand" placeholder="Nike / adidas ..." required>    
                 </div>
 
 

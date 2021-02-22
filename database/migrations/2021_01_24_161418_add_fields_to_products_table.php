@@ -23,8 +23,9 @@ class AddFieldsToProductsTable extends Migration
             $table->string('name', 100);
             $table->text('description');
             $table->string('image');
-            $table->string('type');
+            $table->string('category');
             $table->decimal('price', $precision = 8, $scale = 2);
+            $table->string('brand');
 
         });
     }

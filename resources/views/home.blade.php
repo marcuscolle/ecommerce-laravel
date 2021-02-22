@@ -6,7 +6,9 @@
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">Welcome to the {{ __('Dashboard') }}</div>
+                <br>
+
 
                 <div class="card-body">
                     @if (session('status'))

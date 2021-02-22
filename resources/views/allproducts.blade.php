@@ -209,9 +209,10 @@
                         <div class="single-products">
 
                                 <div class="productinfo text-center">                              
-                                    <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" alt="" />
+                                    <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" width="300" height="200" />
                                     <h2>{{ $product->price }}</h2>
                                     <p>{{ $product->name }}</p>
+                                    <p>{{ $product->brand }}</p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
                                 
@@ -219,6 +220,7 @@
                                     <div class="overlay-content">
                                         <h2>{{ $product->price }}</h2>
                                         <p>{{ $product->name }}</p>
+                                        <p>{{ $product->brand }}</p>
                                         <!-----adding product to cart link--------->
                                         <!------1-param route name -------->
                                         <!------2-param id of our product------->

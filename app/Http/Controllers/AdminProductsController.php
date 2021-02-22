@@ -116,12 +116,15 @@ class AdminProductsController extends Controller
         $name = $request->input('name');
         $description = $request->input('description');
         $price =  $request->input('price');
-        $type = $request->input('type');
+        $category = $request->input('category');
+        $brand = $request->input('brand');
 
         $update = array('name' => $name,
                         'description' => $description,
                         'price' => $price,
-                        'type' => $type );
+                        'category' => $category,
+                        'brand' => $brand
+                    );
 
         DB::table('products')->where('id', $id)->update($update);
 
@@ -151,7 +154,8 @@ class AdminProductsController extends Controller
         $name = $request->input('name');
         $description = $request->input('description');
         $price =  $request->input('price');
-        $type = $request->input('type');
+        $category = $request->input('category');
+        $brand = $request->input('brand');
 
         $request->validate(['image' => 'required|image|mimes:jpg,png,jpeg,gif,svg|max:5000']);
         $imageName = $request->file('image')->getClientOriginalName();
@@ -162,8 +166,10 @@ class AdminProductsController extends Controller
         $newProductArray = array('name' => $name,
                                  'description' => $description,
                                  'price' => $price,
-                                 'type' => $type,
-                                 'image' => $imageName );
+                                 'image' => $imageName,
+                                 'category' => $category,
+                                 'brand' => $brand
+                                 );
 
         $created = DB::table('products')->insert($newProductArray);
 
@@ -234,7 +240,12 @@ class AdminProductsController extends Controller
     }
 
 
+/*-----
+return $this->model->get(['id', 'created_at'])->groupBy(function($date) {
+    return Carbon::parse($date->created_at)->format('m');
+});
 
+-----*/
 
 
 

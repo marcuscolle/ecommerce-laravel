@@ -16,7 +16,7 @@ class AddAdminField extends Migration
         //
         Schema::table('users', function( Blueprint $table){
             
-            $table->boolean('admin')->after('name');
+            $table->boolean('admin')->after('name')->default(0);
 
         });
 
