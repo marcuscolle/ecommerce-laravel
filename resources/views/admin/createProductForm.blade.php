@@ -30,7 +30,13 @@
 
                 <div class="form-group"> 
                     <label for="category">Category:</label>
-                    <input class="form-control" type="text" name="category" id="category" placeholder="Men / Womoen ..." required>    
+                    <select id="category" name="category" required>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                        <option value="kids">Kids</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="shoes">Shoes</option>
+                      </select>   
                 </div>
 
                 <div class="form-group"> 

@@ -19,13 +19,13 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Favicons -->
-<link rel="apple-touch-icon" href="{{ asset('/docs/5.0/assets/img/favicons/apple-touch-icon.png')}}" sizes="180x180">
-<link rel="icon" href="{{ asset('/docs/5.0/assets/img/favicons/favicon-32x32.png')}}" sizes="32x32" type="image/png">
-<link rel="icon" href="{{ asset('/docs/5.0/assets/img/favicons/favicon-16x16.png')}}" sizes="16x16" type="image/png">
-<link rel="manifest" href="{{ asset('/docs/5.0/assets/img/favicons/manifest.json')}}">
-<link rel="mask-icon" href="{{ asset('/docs/5.0/assets/img/favicons/safari-pinned-tab.svg')}}" color="#7952b3">
-<link rel="icon" href="{{ asset('/docs/5.0/assets/img/favicons/favicon.ico')}}">
-<meta name="theme-color" content="#7952b3">
+    <link rel="apple-touch-icon" href="{{ asset('/docs/5.0/assets/img/favicons/apple-touch-icon.png')}}" sizes="180x180">
+    <link rel="icon" href="{{ asset('/docs/5.0/assets/img/favicons/favicon-32x32.png')}}" sizes="32x32" type="image/png">
+    <link rel="icon" href="{{ asset('/docs/5.0/assets/img/favicons/favicon-16x16.png')}}" sizes="16x16" type="image/png">
+    <link rel="manifest" href="{{ asset('/docs/5.0/assets/img/favicons/manifest.json')}}">
+    <link rel="mask-icon" href="{{ asset('/docs/5.0/assets/img/favicons/safari-pinned-tab.svg')}}" color="#7952b3">
+    <link rel="icon" href="{{ asset('/docs/5.0/assets/img/favicons/favicon.ico')}}">
+    <meta name="theme-color" content="#7952b3">
 
 
     <style>
@@ -48,7 +48,8 @@
     <!-- Custom styles for this template -->
     <link href="{{ asset('dashboard.css')}}" rel="stylesheet">
   </head>
-  <body>
+  
+<body>
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
@@ -171,5 +172,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
   
-    </body>
+</body>
 </html>

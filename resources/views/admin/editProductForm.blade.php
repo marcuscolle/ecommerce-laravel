@@ -11,32 +11,38 @@
 
                 <div class="form-group"> 
                     <label for="name">Name:</label>
-                    <input class="form-control" type="text" name="name" id="name" placeholder="name" required>    
+                    <input class="form-control" type="text" name="name" id="name" value={{ $product->name}} required>    
                 </div>
 
                 <div class="form-group"> 
                     <label for="image1">Image:</label>
-                    <input class="form-control" type="file" name="image" id="image" placeholder="image" required>    
+                    <input class="form-control" type="file" name="image" id="image" value={{ $product->image}} required>    
                 </div>
 
                 <div class="form-group"> 
                     <label for="description">Description:</label>
-                    <input class="form-control" type="text" name="description" id="description" placeholder="description" required>    
+                    <input class="form-control" type="text" name="description" id="description" value={{ $product->description}} required>    
                 </div>
 
                 <div class="form-group"> 
                     <label for="price">Price:</label>
-                    <input class="form-control" type="text" name="price" id="price" placeholder="price" required>    
+                    <input class="form-control" type="text" name="price" id="price" required>    
                 </div>
 
                 <div class="form-group"> 
                     <label for="category">Category:</label>
-                    <input class="form-control" type="text" name="category" id="category" placeholder="Men / Womoen ..." required>    
+                    <select id="category" name="category" value={{ $product->category}} required>
+                        <option value="men">Men</option>
+                        <option value="women">Women</option>
+                        <option value="kids">Kids</option>
+                        <option value="accessories">Accessories</option>
+                        <option value="shoes">Shoes</option>
+                      </select>   
                 </div>
 
                 <div class="form-group"> 
                     <label for="brand">Brand:</label>
-                    <input class="form-control" type="text" name="brand" id="brand" placeholder="Nike / adidas ..." required>    
+                    <input class="form-control" type="text" name="brand" id="brand" value={{ $product->brand}} required>    
                 </div>
 
 

@@ -15,7 +15,7 @@
         </div>
 
         <div class="table-responsive cart_info">
-            <table class="table table-condensed">
+            <table class="table">
                 <thead>
 
                     @if(Auth::user())

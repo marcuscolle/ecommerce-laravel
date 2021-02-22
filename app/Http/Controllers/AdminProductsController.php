@@ -112,6 +112,7 @@ class AdminProductsController extends Controller
         // Update Product Details
     public function updateProduct (Request $request, $id )
     {
+        
 
         $name = $request->input('name');
         $description = $request->input('description');
@@ -125,7 +126,7 @@ class AdminProductsController extends Controller
                         'category' => $category,
                         'brand' => $brand
                     );
-
+                               
         DB::table('products')->where('id', $id)->update($update);
 
         return redirect()->route('adminDisplayProducts');

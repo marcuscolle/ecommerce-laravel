@@ -202,7 +202,7 @@
                 <h2 class="title text-center">Features Items</h2>
 
 <!--------------------------------foreach added to loop our product ----------------------------------------->
-                @foreach($products as $product)
+                @foreach($products->shuffle() as $product)
 
                 <div class="col-sm-4">
                     <div class="product-image-wrapper">
