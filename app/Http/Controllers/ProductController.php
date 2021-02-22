@@ -29,7 +29,7 @@ class ProductController extends Controller
 
         // PAGINATION WILL BE ADDED!
 
-        $products = Product::all();
+        $products = Product::all()->shuffle();
 
         return view('allproducts', compact('products'));
     }

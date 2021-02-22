@@ -18,20 +18,14 @@
                         <li><a href="index.html" class="active">Home</a></li>
                         <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
-                                <li><a href="#">Products</a></li>
-                                <li><a href="#">Product Details</a></li> 
-                                <li><a href="#">Checkout</a></li> 
-                                <li><a href="#">Cart</a></li> 
-                                <li><a href="#">Login</a></li> 
+                                <li><a href="{{ route('products') }}">Products</a></li>
+                                <li><a href="{{ route('menProducts') }}">Men</a></li> 
+                                <li><a href="{{ route('womenProducts') }}">Women</a></li> 
+                                <li><a href="{{ route('kids') }}">Kids</a></li> 
+                                <li><a href="{{ route('accessories') }}">Accessories</a></li>
+                                <li><a href="{{ route('shoes') }}">Shoes</a></li>  
                             </ul>
                         </li> 
-                        <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
-                            <ul role="menu" class="sub-menu">
-                                <li><a href="#">Blog List</a></li>
-                                <li><a href="#">Blog Single</a></li>
-                            </ul>
-                        </li> 
-                        <li><a href="#">404</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
