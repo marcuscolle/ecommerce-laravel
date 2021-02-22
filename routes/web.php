@@ -36,6 +36,18 @@ Route::get('products/men', [App\Http\Controllers\ProductController::class, 'menP
 // women Page Route
 Route::get('products/women', [App\Http\Controllers\ProductController::class, 'womenProducts'])->name('womenProducts');
 
+// shoes Page Route
+Route::get('products/shoes', [App\Http\Controllers\ProductController::class, 'shoes'])->name('shoes');
+
+// kids Page Route
+Route::get('products/kids', [App\Http\Controllers\ProductController::class, 'kids'])->name('kids');
+
+// shoes Page Route
+Route::get('products/accessories', [App\Http\Controllers\ProductController::class, 'accessories'])->name('accessories');
+
+
+
+
 
 
 

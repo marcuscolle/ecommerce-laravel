@@ -35,16 +35,13 @@ class ProductController extends Controller
     }
 
 
-
-
-
     // men products function to filter all products type men
     public function menProducts()
     {
         //query builder
         //filtering mens products
         // more type or columns can be added or filtered to the website
-        $products = DB::table('products')->where('type', 'Men')->get();
+        $products = DB::table('products')->where('category', 'Men')->get();
 
         return view('menProducts', compact('products'));
 
@@ -53,11 +50,36 @@ class ProductController extends Controller
     // women products function to filter all products type women
     public function womenProducts()
     {
-        $products = DB::table('products')->where('type', 'Women')->get();
+        $products = DB::table('products')->where('category', 'Women')->get();
 
         return view('womenProducts', compact('products'));
 
     }
+
+    public function kids()
+    {
+        $products = DB::table('products')->where('category', 'kids')->get();
+
+        return view('shoes', compact('products'));
+    }
+
+    public function accessories()
+    {
+        $products = DB::table('products')->where('category', 'accessories')->get();
+
+        return view('shoes', compact('products'));
+    }
+
+
+
+    public function shoes()
+    {
+        $products = DB::table('products')->where('name', 'shoes')->get();
+
+        return view('shoes', compact('products'));
+    }
+
+
 
 
     public function search(Request $request)

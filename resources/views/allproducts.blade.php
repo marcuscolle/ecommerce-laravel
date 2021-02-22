@@ -145,17 +145,17 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="#">Kids</a></h4>
+                            <h4 class="panel-title"><a href="{{ route('kids') }}">Kids</a></h4>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="#">Accessories</a></h4>
+                            <h4 class="panel-title"><a href="{{ route('accessories') }}">Accessories</a></h4>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="#">Shoes</a></h4>
+                            <h4 class="panel-title"><a href="{{ route('shoes') }}">Shoes</a></h4>
                         </div>
                     </div>
                 </div><!--/category-products-->
@@ -209,7 +209,7 @@
                         <div class="single-products">
 
                                 <div class="productinfo text-center">                              
-                                    <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" width="300" height="200" />
+                                    <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" width="200" height="150" />
                                     <h2>{{ $product->price }}</h2>
                                     <p>{{ $product->name }}</p>
                                     <p>{{ $product->brand }}</p>
