@@ -29,7 +29,7 @@ class ProductController extends Controller
 
         // PAGINATION WILL BE ADDED!
 
-        $products = Product::all()->shuffle();
+        $products = Product::paginate(21);
 
         return view('allproducts', compact('products'));
     }
@@ -41,7 +41,7 @@ class ProductController extends Controller
         //query builder
         //filtering mens products
         // more type or columns can be added or filtered to the website
-        $products = DB::table('products')->where('category', 'Men')->get();
+        $products = DB::table('products')->where('category', 'Men')->paginate(21);
 
         return view('menProducts', compact('products'));
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
     // women products function to filter all products type women
     public function womenProducts()
     {
-        $products = DB::table('products')->where('category', 'Women')->get();
+        $products = DB::table('products')->where('category', 'Women')->paginate(21);
 
         return view('womenProducts', compact('products'));
 
@@ -58,14 +58,14 @@ class ProductController extends Controller
 
     public function kids()
     {
-        $products = DB::table('products')->where('category', 'kids')->get();
+        $products = DB::table('products')->where('category', 'kids')->paginate(21);
 
         return view('shoes', compact('products'));
     }
 
     public function accessories()
     {
-        $products = DB::table('products')->where('category', 'accessories')->get();
+        $products = DB::table('products')->where('category', 'accessories')->paginate(21);
 
         return view('shoes', compact('products'));
     }
@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     public function shoes()
     {
-        $products = DB::table('products')->where('name', 'shoes')->get();
+        $products = DB::table('products')->where('name', 'shoes')->paginate(21);
 
         return view('shoes', compact('products'));
     }
@@ -85,7 +85,7 @@ class ProductController extends Controller
     public function search(Request $request)
     {
         $searchText = $request->get('searchText');
-        $products = Product::where('name', 'Like', $searchText."%")->paginate(10);
+        $products = Product::where('name', 'Like', $searchText."%")->paginate(21);
 
         return view('allproducts', compact('products'));
     }

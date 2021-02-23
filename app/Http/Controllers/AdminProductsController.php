@@ -23,7 +23,7 @@ class AdminProductsController extends Controller
     {
         //display all products in admin page
         // 2 is the number os items displayed by page
-        $products = Product::paginate(2);
+        $products = Product::paginate(20);
 
         return view('admin.displayProducts', ['products' => $products]);
     }

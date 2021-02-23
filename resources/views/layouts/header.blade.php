@@ -7,6 +7,7 @@
     <meta name="author" content="">
     <title>Home | E-Shopper</title>
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+	
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/prettyPhoto.css') }}" rel="stylesheet">
     <link href="{{ asset('css/price-range.css') }}" rel="stylesheet">

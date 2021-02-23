@@ -1,3 +1,4 @@
+<!--- extends layouts.app --- navbar with login and register added with laravel auth ---->
 @include('layouts.header')
 @yield('center')
 
@@ -15,7 +16,7 @@
                 </div>
                 <div class="mainmenu pull-left">
                     <ul class="nav navbar-nav collapse navbar-collapse">
-                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="{{ route('products') }}" class="active">Home</a></li>
                         <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
                                 <li><a href="{{ route('products') }}">Products</a></li>
@@ -68,42 +69,30 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <div class="col-sm-6">
-                            <h1><span>E</span>-SHOPPER</h1>
-                            <h2>Free E-Commerce Template</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <button type="button" class="btn btn-default get">Get it now</button>
+                            <img src="/images/carousel/adidas.jpg" width="400" height="350" />
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
-                            <img src="images/home/pricing.png"  class="pricing" alt="" />
+                            <img src="/images/carousel/sale.png" width="400" height="350" />
                         </div>
                     </div>
                     <div class="item">
                         <div class="col-sm-6">
-                            <h1><span>E</span>-SHOPPER</h1>
-                            <h2>100% Responsive Design</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <button type="button" class="btn btn-default get">Get it now</button>
+                            <img src="/images/carousel/sale.png" width="400" height="350" />
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/home/girl2.jpg" class="girl img-responsive" alt="" />
-                            <img src="images/home/pricing.png"  class="pricing" alt="" />
+                            <img src="/images/carousel/lacost-glass.jpg" width="400" height="350" />
                         </div>
                     </div>
+                    
                     
                     <div class="item">
                         <div class="col-sm-6">
-                            <h1><span>E</span>-SHOPPER</h1>
-                            <h2>Free Ecommerce Template</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-                            <button type="button" class="btn btn-default get">Get it now</button>
+                            <img src="/images/carousel/nike.jpg" width="400" height="350" />
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/home/girl3.jpg" class="girl img-responsive" alt="" />
-                            <img src="images/home/pricing.png" class="pricing" alt="" />
+                            <img src="/images/carousel/sale.png" width="400" height="350" />
                         </div>
-                    </div>
-                    
+                    </div>                    
                 </div>
                 
                 <a href="#slider-carousel" class="left control-carousel hidden-xs" data-slide="prev">
@@ -193,44 +182,47 @@
         <div class="col-sm-9 padding-right">
             <div class="features_items"><!--features_items-->
                 <h2 class="title text-center">Features Items</h2>
-
 <!--------------------------------foreach added to loop our product ----------------------------------------->
-                @foreach($products as $product)
+                @foreach($products->shuffle() as $product)
+                    <div class="col-sm-4">
+                        <div class="product-image-wrapper">
+                            <div class="single-products">
 
-                <div class="col-sm-4">
-                    <div class="product-image-wrapper">
-                        <div class="single-products">
-
-                                <div class="productinfo text-center">                              
-                                    <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" width="200" height="150" />
-                                    <h2>{{ $product->price }}</h2>
-                                    <p>{{ $product->name }}</p>
-                                    <p>{{ $product->brand }}</p>
-                                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                                </div>
-                                
-                                <div class="product-overlay">
-                                    <div class="overlay-content">
+                                    <div class="productinfo text-center">                              
+                                        <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" width="200" height="150" />
                                         <h2>{{ $product->price }}</h2>
                                         <p>{{ $product->name }}</p>
                                         <p>{{ $product->brand }}</p>
-                                        <!-----adding product to cart link--------->
-                                        <!------1-param route name -------->
-                                        <!------2-param id of our product------->
-                                        <a href="{{route('AddToCartProduct', ['id'=>$product->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                     </div>
-                                </div>
+                                    
+                                    <div class="product-overlay">
+                                        <div class="overlay-content">
+                                            <h2>{{ $product->price }}</h2>
+                                            <p>{{ $product->name }}</p>
+                                            <p>{{ $product->brand }}</p>
+                                            <!-----adding product to cart link--------->
+                                            <!------1-param route name -------->
+                                            <!------2-param id of our product------->
+                                            <a href="{{route('AddToCartProduct', ['id'=>$product->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        </div>
+                                    </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                @endforeach
-
-            </div>
+                @endforeach           
+<!---------------------------------------------end foreach of the products------------------------------------------------>
+            </div><!--features_items-->
+            <div class="pagination"> 
+                {{ $products->links() }}
+            </div>            
         </div>
-    </section>
+    </div>
+</div>
+</section>
 
 
 
 @include('layouts.footer')
+
 
