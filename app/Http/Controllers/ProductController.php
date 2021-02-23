@@ -41,7 +41,7 @@ class ProductController extends Controller
         //query builder
         //filtering mens products
         // more type or columns can be added or filtered to the website
-        $products = DB::table('products')->where('category', 'Men')->paginate(21);
+        $products = Product::where('category', 'Men')->paginate(21);
 
         return view('menProducts', compact('products'));
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
     // women products function to filter all products type women
     public function womenProducts()
     {
-        $products = DB::table('products')->where('category', 'Women')->paginate(21);
+        $products = Product::where('products')->where('category', 'Women')->paginate(21);
 
         return view('womenProducts', compact('products'));
 
@@ -58,14 +58,14 @@ class ProductController extends Controller
 
     public function kids()
     {
-        $products = DB::table('products')->where('category', 'kids')->paginate(21);
+        $products = Product::where('category', 'kids')->paginate(21);
 
         return view('shoes', compact('products'));
     }
 
     public function accessories()
     {
-        $products = DB::table('products')->where('category', 'accessories')->paginate(21);
+        $products = Product::where('category', 'accessories')->paginate(21);
 
         return view('shoes', compact('products'));
     }
@@ -74,7 +74,7 @@ class ProductController extends Controller
 
     public function shoes()
     {
-        $products = DB::table('products')->where('name', 'shoes')->paginate(21);
+        $products = Product::where('name', 'shoes')->paginate(21);
 
         return view('shoes', compact('products'));
     }

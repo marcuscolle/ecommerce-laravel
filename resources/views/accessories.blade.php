@@ -69,28 +69,28 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <div class="col-sm-6">
-                            <img src="/images/carousel/adidas.jpg" width="400" height="350" />
+                            <img src="images/carousel/adidas.jpg" width="400" height="350" />
                         </div>
                         <div class="col-sm-6">
-                            <img src="/images/carousel/sale.png" width="400" height="350" />
+                            <img src="images/carousel/sale.png" width="400" height="350" />
                         </div>
                     </div>
                     <div class="item">
                         <div class="col-sm-6">
-                            <img src="/images/carousel/sale.png" width="400" height="350" />
+                            <img src="images/carousel/sale.png" width="400" height="350" />
                         </div>
                         <div class="col-sm-6">
-                            <img src="/images/carousel/lacost-glass.jpg" width="400" height="350" />
+                            <img src="images/carousel/lacost-glass.jpg" width="400" height="350" />
                         </div>
                     </div>
                     
                     
                     <div class="item">
                         <div class="col-sm-6">
-                            <img src="/images/carousel/nike.jpg" width="400" height="350" />
+                            <img src="images/carousel/nike.jpg" width="400" height="350" />
                         </div>
                         <div class="col-sm-6">
-                            <img src="/images/carousel/sale.png" width="400" height="350" />
+                            <img src="images/carousel/sale.png" width="400" height="350" />
                         </div>
                     </div>                    
                 </div>
@@ -224,5 +224,6 @@
 
 
 @include('layouts.footer')
+
 
 
