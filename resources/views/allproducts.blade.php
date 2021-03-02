@@ -82,9 +82,7 @@
                         <div class="col-sm-6">
                             <img src="images/carousel/lacost-glass.jpg" width="400" height="350" />
                         </div>
-                    </div>
-                    
-                    
+                    </div>   
                     <div class="item">
                         <div class="col-sm-6">
                             <img src="images/carousel/nike.jpg" width="400" height="350" />
@@ -101,8 +99,7 @@
                 <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
                     <i class="fa fa-angle-right"></i>
                 </a>
-            </div>
-            
+            </div>        
         </div>
     </div>
 </div>
@@ -125,7 +122,7 @@
                                       <a href="#">Pants</a>
                                       <a href="#">Shoes</a>
                                       <a href="#">Shorts</a>
-                                      <a href="#">T-shirts</a>
+                                      <a href="#">T-Shirts</a>
                                     </div>
                                 </div>
                             </div>
@@ -141,7 +138,7 @@
                                       <a href="#">Dress</a>
                                       <a href="#">Pants</a>
                                       <a href="#">Shoes</a>
-                                      <a href="#">T-shirts</a>
+                                      <a href="#">T-Shirts</a>
                                     </div>
                                 </div>
                             </div>
@@ -247,16 +244,21 @@
                             </div>
                         </div>
                     </div>
-                @endforeach      
-                
+                @endforeach                
 <!---------------------------------------------end foreach of the products------------------------------------------------>
             </div><!--features_items-->         
         </div>
+
+
+
+        <!------pagination added to the center of the screen page container/row, not on loop div page col-sm-9------>
         <div class="text-center">
             <div class="pagination col-sm-12"> 
                 {{ $products->links('pagination::bootstrap-4') }}
             </div>  
         </div> 
+
+        
     </div>
 </div>
 </section>

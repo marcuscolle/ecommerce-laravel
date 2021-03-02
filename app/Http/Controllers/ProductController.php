@@ -47,7 +47,7 @@ class ProductController extends Controller
         // more type or columns can be added or filtered to the website
         $products = Product::where('category', 'Men')->paginate(21);
 
-        return view('menProducts', compact('products'));
+        return view('mens.menProducts', compact('products'));
 
     }
 
@@ -75,7 +75,7 @@ class ProductController extends Controller
     {
         $products = Product::where('category', 'Women')->paginate(21);
 
-        return view('womenProducts', compact('products'));
+        return view('women.womenProducts', compact('products'));
 
     }
 
@@ -83,14 +83,14 @@ class ProductController extends Controller
     {
         $products = Product::where('category', 'kids')->paginate(21);
 
-        return view('shoes', compact('products'));
+        return view('kids.kids', compact('products'));
     }
 
     public function accessories()
     {
         $products = Product::where('category', 'accessories')->paginate(21);
 
-        return view('shoes', compact('products'));
+        return view('accessories.accessories', compact('products'));
     }
 
 
@@ -99,7 +99,7 @@ class ProductController extends Controller
     {
         $products = Product::where('name', 'shoes')->paginate(21);
 
-        return view('shoes', compact('products'));
+        return view('shoes.shoes', compact('products'));
     }
 
 
