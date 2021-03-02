@@ -121,7 +121,7 @@
                                 <div class="dropdown">
                                     <a class="dropbtn">Mens</a>
                                     <div class="dropdown-content">
-                                      <a href="{{ route('menProducts') }}">Mens All</a>
+                                      <a href="{{ route('menProducts') }}">All</a>
                                       <a href="#">Pants</a>
                                       <a href="#">Shoes</a>
                                       <a href="#">Shorts</a>
@@ -137,7 +137,7 @@
                                 <div class="dropdown">
                                     <a class="dropbtn">Women</a>
                                     <div class="dropdown-content">
-                                      <a href="{{ route('womenProducts') }}">Women All</a>
+                                      <a href="{{ route('womenProducts') }}">All</a>
                                       <a href="#">Dress</a>
                                       <a href="#">Pants</a>
                                       <a href="#">Shoes</a>
@@ -161,12 +161,20 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="{{ route('accessories') }}">Accessories</a></h4>
+                            <div class="mainmenu pull-left">
+                                <div class="dropdown">
+                                    <a class="dropbtn" href="{{ route('accessories') }}">Accessories</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="{{ route('shoes') }}">Shoes</a></h4>
+                            <div class="mainmenu pull-left">
+                                <div class="dropdown">
+                                    <a class="dropbtn" href="{{ route('shoes') }}">Shoes</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><!--/category-products-->
@@ -239,13 +247,16 @@
                             </div>
                         </div>
                     </div>
-                @endforeach           
+                @endforeach      
+                
 <!---------------------------------------------end foreach of the products------------------------------------------------>
-            </div><!--features_items-->
-            <div class="pagination"> 
-                {{ $products->links() }}
-            </div>            
+            </div><!--features_items-->         
         </div>
+        <div class="text-center">
+            <div class="pagination col-sm-12"> 
+                {{ $products->links('pagination::bootstrap-4') }}
+            </div>  
+        </div> 
     </div>
 </div>
 </section>

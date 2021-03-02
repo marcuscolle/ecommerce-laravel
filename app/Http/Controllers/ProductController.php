@@ -35,6 +35,10 @@ class ProductController extends Controller
     }
 
 
+
+
+    /*--------------------Mens Filters--------------------------*/
+
     // men products function to filter all products type men
     public function menProducts()
     {
@@ -46,6 +50,20 @@ class ProductController extends Controller
         return view('menProducts', compact('products'));
 
     }
+
+  /*-----   
+    public function menShoes()
+    {
+        //query builder
+        //filtering mens products
+        // more type or columns can be added or filtered to the website
+        $products = Product::where('men', 'shoes')->paginate(21);
+
+        return view('menProducts', compact('products'));
+
+    }
+---------*/
+
 
     
 

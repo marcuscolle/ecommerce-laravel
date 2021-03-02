@@ -1207,7 +1207,7 @@ h2.title {
 .pagination li span {
     background-color: #f0f0e9;
     border: 0;
-    float: left;
+    float: center;
     line-height: 1.42857;
     margin-left: -1px;
     padding: 6px 12px;
