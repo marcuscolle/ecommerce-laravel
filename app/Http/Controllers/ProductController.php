@@ -47,10 +47,15 @@ class ProductController extends Controller
 
     }
 
+    
+
+
+
+
     // women products function to filter all products type women
     public function womenProducts()
     {
-        $products = Product::where('products')->where('category', 'Women')->paginate(21);
+        $products = Product::where('category', 'Women')->paginate(21);
 
         return view('womenProducts', compact('products'));
 
