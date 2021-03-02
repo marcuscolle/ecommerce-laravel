@@ -51,33 +51,140 @@ class ProductController extends Controller
 
     }
 
-  /*-----   
+  
     public function menShoes()
     {
         //query builder
-        //filtering mens products
-        // more type or columns can be added or filtered to the website
-        $products = Product::where('men', 'shoes')->paginate(21);
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'men')
+                  ->where('name', 'shoes');
+        
+                })->paginate(9);
 
-        return view('menProducts', compact('products'));
+        return view('mens.shoesmens', compact('products'));
 
     }
----------*/
+
+    public function menPants()
+    {
+        //query builder
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'men')
+                  ->where('name', 'pants');
+        
+                })->paginate(9);
+
+        return view('mens.pantsmens', compact('products'));
+
+    }
+
+    public function menShirts()
+    {
+        //query builder
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'men')
+                  ->where('name', 't-shirt');
+        
+                })->paginate(9);
+
+        return view('mens.shirtsmens', compact('products'));
+
+    }
+
+    public function menShorts()
+    {
+        //query builder
+        
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'men')
+                  ->where('name', 'shorts');
+        
+                })->paginate(9);
+
+        return view('mens.shortsmens', compact('products'));
+
+    }
 
 
-    
 
 
 
+/*------------------Women Filters-------------------------*/
 
     // women products function to filter all products type women
     public function womenProducts()
     {
-        $products = Product::where('category', 'Women')->paginate(21);
+        $products = Product::where('category', 'women')->paginate(21);
 
         return view('women.womenProducts', compact('products'));
 
     }
+
+    public function womenDress()
+    {
+        //query builder
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'women')
+                  ->where('name', 'dress');
+        
+                })->paginate(9);
+
+        return view('women.dresswomen', compact('products'));
+
+    }
+
+    public function womenPants()
+    {
+        //query builder
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'women')
+                  ->where('name', 'pants');
+        
+                })->paginate(9);
+
+        return view('women.pantswomen', compact('products'));
+
+    }
+
+    public function womenShirt()
+    {
+        //query builder
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'women')
+                  ->where('name', 't-shirt');
+        
+                })->paginate(9);
+
+        return view('women.shirtswomen', compact('products'));
+
+    }
+
+    public function womenShoes()
+    {
+        //query builder
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'women')
+                  ->where('name', 'shoes');
+        
+                })->paginate(9);
+
+        return view('women.shoeswomen', compact('products'));
+
+    }
+
+
+
+
+
+/*-------------Kids Filters-----------------------*/
 
     public function kids()
     {
@@ -85,6 +192,27 @@ class ProductController extends Controller
 
         return view('kids.kids', compact('products'));
     }
+
+
+
+    public function kidsShoes()
+    {
+        //query builder
+        $products = Product::where(function($query)
+        {
+            $query->where('category', 'kids')
+                  ->where('name', 'shoes');
+        
+                })->paginate(9);
+
+        return view('kids.shoeskids', compact('products'));
+
+    }
+
+
+
+
+
 
     public function accessories()
     {
@@ -95,12 +223,21 @@ class ProductController extends Controller
 
 
 
+
+
+
+
+
     public function shoes()
     {
         $products = Product::where('name', 'shoes')->paginate(21);
 
         return view('shoes.shoes', compact('products'));
     }
+
+
+    
+
 
 
 

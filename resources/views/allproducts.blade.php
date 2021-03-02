@@ -119,10 +119,10 @@
                                     <a class="dropbtn">Mens</a>
                                     <div class="dropdown-content">
                                       <a href="{{ route('menProducts') }}">All</a>
-                                      <a href="#">Pants</a>
-                                      <a href="#">Shoes</a>
-                                      <a href="#">Shorts</a>
-                                      <a href="#">T-Shirts</a>
+                                      <a href="{{ route('menPants') }}">Pants</a>
+                                      <a href="{{ route('menShoes') }}">Shoes</a>
+                                      <a href="{{ route('menShorts') }}">Shorts</a>
+                                      <a href="{{ route('menShirts') }}">T-Shirts</a>
                                     </div>
                                 </div>
                             </div>
@@ -135,10 +135,10 @@
                                     <a class="dropbtn">Women</a>
                                     <div class="dropdown-content">
                                       <a href="{{ route('womenProducts') }}">All</a>
-                                      <a href="#">Dress</a>
-                                      <a href="#">Pants</a>
-                                      <a href="#">Shoes</a>
-                                      <a href="#">T-Shirts</a>
+                                      <a href="{{ route('womenDress') }}">Dress</a>
+                                      <a href="{{ route('womenPants') }}">Pants</a>
+                                      <a href="{{ route('womenShoes') }}">Shoes</a>
+                                      <a href="{{ route('womenShirts') }}">T-Shirts</a>
                                     </div>
                                 </div>
                             </div>
@@ -151,6 +151,7 @@
                                     <a class="dropbtn">Kids</a>
                                     <div class="dropdown-content">
                                       <a href="{{ route('kids') }}">Shoes</a>
+                                      <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
                                     </div>
                                 </div>
                             </div>
@@ -169,7 +170,14 @@
                         <div class="panel-heading">
                             <div class="mainmenu pull-left">
                                 <div class="dropdown">
-                                    <a class="dropbtn" href="{{ route('shoes') }}">Shoes</a>
+                                    <a class="dropbtn">Shoes</a>
+                                    <div class="dropdown-content">
+                                      <a href="{{ route('shoes') }}">All</a>
+                                      <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
+                                      <a href="{{ route('menShoes') }}">Mens Shoes</a>
+                                      <a href="{{ route('womenShoes') }}">Women Shoes</a>
+                                      <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -258,7 +266,7 @@
             </div>  
         </div> 
 
-        
+
     </div>
 </div>
 </section>

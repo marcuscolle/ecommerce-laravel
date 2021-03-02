@@ -25,28 +25,70 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 
-
-
 // Products route
 Route::get('/', [App\Http\Controllers\ProductController::class, 'index'])->name('products');
+
+
+
+
+
 
 // Mens Page Route
 Route::get('products/men', [App\Http\Controllers\ProductController::class, 'menProducts'])->name('menProducts');
 
+// Mens Shoes Page Route
+Route::get('products/men/shoes', [App\Http\Controllers\ProductController::class, 'menShoes'])->name('menShoes');
+
+// Mens Pants Page Route
+Route::get('products/men/pants', [App\Http\Controllers\ProductController::class, 'menPants'])->name('menPants');
+
+// Mens Shirts Page Route
+Route::get('products/men/shirts', [App\Http\Controllers\ProductController::class, 'menShirts'])->name('menShirts');
+
+// Mens Shorts Page Route
+Route::get('products/men/shorts', [App\Http\Controllers\ProductController::class, 'menShorts'])->name('menShorts');
+
+
+
+
+
+
+
 // women Page Route
 Route::get('products/women', [App\Http\Controllers\ProductController::class, 'womenProducts'])->name('womenProducts');
+
+// women dress Route
+Route::get('products/women/dress', [App\Http\Controllers\ProductController::class, 'womenDress'])->name('womenDress');
+
+// women Pants Route
+Route::get('products/women/pants', [App\Http\Controllers\ProductController::class, 'womenPants'])->name('womenPants');
+
+// women Shits Route
+Route::get('products/women/shirts', [App\Http\Controllers\ProductController::class, 'womenShirts'])->name('womenShirts');
+
+// women ShoesRoute
+Route::get('products/women/shoes', [App\Http\Controllers\ProductController::class, 'womenShoes'])->name('womenShoes');
+
+
+
 
 // shoes Page Route
 Route::get('products/shoes', [App\Http\Controllers\ProductController::class, 'shoes'])->name('shoes');
 
+
+
+
 // kids Page Route
 Route::get('products/kids', [App\Http\Controllers\ProductController::class, 'kids'])->name('kids');
 
-// shoes Page Route
+// kids Shoes Route
+Route::get('products/kids/shoes', [App\Http\Controllers\ProductController::class, 'kidsShoes'])->name('kidsShoes');
+
+
+
+
+// Accessories Page Route
 Route::get('products/accessories', [App\Http\Controllers\ProductController::class, 'accessories'])->name('accessories');
-
-
-
 
 
 
@@ -78,6 +120,8 @@ Route::get('product/decreaseProduct/{id}', [App\Http\Controllers\ProductControll
 
 //Checkout w/details customer details form
 Route::get('product/checkoutproducts/', [App\Http\Controllers\ProductController::class, 'checkoutproducts'])->name('checkoutproducts');
+
+
 
 
 
