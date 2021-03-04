@@ -6,16 +6,71 @@
 
 
 
-    <div class="container">
+    <div class="container checkout">
         <div class="row">
-            <div class="col-lg">
+            <div class="col-sm-12">
+              <div class="text-center">
                 <div class="total_area">
-                    <p>Payment Status: Not Paid Yet! /{{ $payment_info['status']}}</p>
-                    <p>Total: £{{ $payment_info['price'] }}</p>
-                    <a class="btn" id="paypal-button">Pay Now! </a>
+
+                    <h3><strong>Payment Status:</strong> Not Paid!</h3>
+                    <hr>
+                    <h3><strong>Order Id:</strong> {{$payment_info['order_id']}}</h3>
+
+
+                  <hr>
+
+                    <div class="table-responsive cart_info">
+                      <table class="table">
+                          <thead>          
+                              <tr class="cart_menu">
+                                  <td class="image">Item</td>
+                                  <td class="description"></td>
+                                  <td class="price">Price</td>
+                                  <td class="quantity">Quantity</td>
+                                  <td class="total">Total</td>
+                                  <td></td>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              @foreach( $cart->items as $item)
+                              <tr>
+                                  <td class="cart_product">
+                                      <a href=""><img src="{{Storage::disk('local')->url('public/product_images/' .  $item['data']['image'])}}" width="100" height="100"></a>
+                                  </td>
+                                  <td class="cart_description">
+                                      <h4><a href="">{{ $item['data']['name'] }}</a></h4>
+                                      <p>{{ $item['data']['brand'] }} - {{ $item['data']['category'] }}</p>
+                                      <p>id: {{ $item['data']['id'] }}</p>
+                                  </td>
+                                  <td class="cart_price">
+                                      <p>{{ $item['data']['price'] }}</p>
+                                  </td>
+                                  <td class="cart_quantity">
+                                      <div class="cart_quantity_button">  
+                                          <input class="cart_quantity_input" type="text" name="quantity" value="{{ $item['quantity'] }}" autocomplete="off" size="2" readonly="readonly">
+                                      </div>
+                                  </td>
+                                  <td class="cart_total">
+                                      <p class="cart_total_price">£{{ $item['totalSinglePrice'] }}</p>
+                                  </td>
+                              </tr>                    
+                              @endforeach
+                          </tbody>
+                      </table>
+                  </div>
+
+                  <hr>
+
+
+                  <h1><strong>Total:</strong> £{{ $payment_info['price'] }}</h1>
+                  <hr>
+                  <a class="btn" id="paypal-button"></a>
+
+
                 </div>
+              </div>
             </div>
-          </div>  
+          </div>
         </div>
     </div>
 
@@ -36,7 +91,7 @@
     // Customize button (optional)
     locale: 'en_US',
     style: {
-      size: 'large',
+      size: 'medium',
       color: 'gold',
       shape: 'pill',
     },

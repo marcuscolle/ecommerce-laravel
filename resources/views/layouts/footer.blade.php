@@ -31,10 +31,10 @@
                         <h2>Quock Shop</h2>
                         <ul class="nav nav-pills nav-stacked">
                             <li><a href="#">T-Shirt</a></li>
-                            <li><a href="#">Mens</a></li>
-                            <li><a href="#">Womens</a></li>
+                            <li><a href="{{ route('menProducts') }}">Mens</a></li>
+                            <li><a href="{{ route('womenProducts') }}">Womens</a></li>
                             <li><a href="#">Gift Cards</a></li>
-                            <li><a href="#">Shoes</a></li>
+                            <li><a href="{{ route('shoes') }}">Shoes</a></li>
                         </ul>
                     </div>
                 </div>

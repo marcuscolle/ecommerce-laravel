@@ -14,6 +14,12 @@
             </ol>
         </div>
 
+<!----------------------alert message-------------->
+        <div class="container">
+            @include('alert')
+        </div>
+<!------------------------------------------------->
+
         <div class="table-responsive cart_info">
             <table class="table">
                 <thead>
@@ -43,7 +49,7 @@
                         </td>
                         <td class="cart_description">
                             <h4><a href="">{{ $item['data']['name'] }}</a></h4>
-                            <p>{{ $item['data']['description'] }} - {{ $item['data']['type'] }}</p>
+                            <p>{{ $item['data']['brand'] }} - {{ $item['data']['category'] }}</p>
                             <p>id: {{ $item['data']['id'] }}</p>
                         </td>
                         <td class="cart_price">
@@ -75,23 +81,21 @@
 </section> <!--/#cart_items-->
 
 <section id="do_action">
+    
     <div class="container">
-        
-            <div class="col-sm-6">
-                <div class="total_area">
-                    <ul>
-                        
-                        <li>Total Items <span>{{ $cartItems->totalQuantity}}</span></li>
-                        <li>Shipping Cost <span>Free</span></li>
-                        <li>VAT incl. <span> 20% </span></li>
-                        <li>Total <span>£{{ $cartItems->totalPrice}} </span></li>
-                    </ul>
-                        <a class="btn btn-default update" href="">Update</a>
-                        <a class="btn btn-default check_out" href="{{ route('checkoutproducts') }}">Check Out</a>
-                        
-                        <!-------- route('checkoutproducts')------>
-                </div>
+        <div class="col-sm-6">
+            <div class="total_area">
+                <ul>             
+                    <li>Total Items <span>{{ $cartItems->totalQuantity}}</span></li>
+                    <li>Shipping Cost <span>Free</span></li>
+                    <li>VAT incl. <span> 20% </span></li>
+                    <li>Total <span>£{{ $cartItems->totalPrice}} </span></li>
+                </ul>
+                <a class="btn btn-default update" href="">Update</a>
+                <a class="btn btn-default check_out" href="{{ route('checkoutproducts') }}">Check Out</a>
+                <!-------- route('checkoutproducts')------>
             </div>
+        </div>
     </div>
 </section><!-----/#do_action-->
 

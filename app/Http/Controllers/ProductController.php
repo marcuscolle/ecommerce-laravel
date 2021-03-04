@@ -209,10 +209,7 @@ class ProductController extends Controller
 
     }
 
-
-
-
-
+/*---------------------------Accessories Filter---------------------------------------*/
 
     public function accessories()
     {
@@ -222,12 +219,7 @@ class ProductController extends Controller
     }
 
 
-
-
-
-
-
-
+/*---------------------------Shoes Filter--------------------------------*/
     public function shoes()
     {
         $products = Product::where('name', 'shoes')->paginate(21);
@@ -237,11 +229,8 @@ class ProductController extends Controller
 
 
     
-
-
-
-
-
+/*---------------------SearchBar-----------------------*/
+    
     public function search(Request $request)
     {
         $searchText = $request->get('searchText');
@@ -249,10 +238,6 @@ class ProductController extends Controller
 
         return view('allproducts', compact('products'));
     }
-
-
-
-
 
 
 
@@ -278,9 +263,12 @@ class ProductController extends Controller
 
         // dump($cart);
 
-         return redirect()->route('products');
+         return redirect()->route('products')->with('success',  $product->name . ' ' . $product->brand . ' ' . 'has been added to cart!');
 
     }
+
+
+    
 
     public function showCart()
     {
@@ -321,7 +309,7 @@ class ProductController extends Controller
 
         
 
-        return redirect()->route('cartproducts');
+        return redirect()->route('cartproducts')->with('success', 'Product has been deleted');
     }
 
 

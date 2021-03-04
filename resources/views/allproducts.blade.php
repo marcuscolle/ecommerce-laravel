@@ -176,7 +176,6 @@
                                       <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
                                       <a href="{{ route('menShoes') }}">Mens Shoes</a>
                                       <a href="{{ route('womenShoes') }}">Women Shoes</a>
-                                      <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
                                     </div>
                                 </div>
                             </div>

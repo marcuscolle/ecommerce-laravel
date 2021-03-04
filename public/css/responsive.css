@@ -1,6 +1,12 @@
 /* lg */
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+    div.container.checkout{
+        width:40%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+    }
+}
 
 
 /* md */

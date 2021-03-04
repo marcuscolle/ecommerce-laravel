@@ -26,10 +26,12 @@ class PaymentsController extends Controller
     public function paymentpage()
     {
         $payment_info = Session::get('payment_info');
+        $cart = Session::get('cart');
+        
 
-        if($payment_info['status'] == 'on_hold'){
+        if($payment_info['status'] == 'on_hold' && $cart){
 
-            return view('payment.paymentpage', [ 'payment_info' => $payment_info]);
+            return view('payment.paymentpage', [ 'payment_info' => $payment_info, 'cart' => $cart]);
         
         }else{
             return redirect()->route("products");
@@ -74,17 +76,17 @@ class PaymentsController extends Controller
 
             // delete cart
            # Session::forget('cart');
-            Session::flush();
-
+           # Session::flush();
+            
             $payment_info = $newOrderArray;
-            $payment_info['order_id'] = $order_id;   
+            $payment_info['order_id'] = $order_id; 
+            $payment_info['item_id'] = $item_id;
+            $payment_info['item_name']= $item_name;
+            $payment_info['item_price'] = $item_price;
+             
             $request->session()->put('payment_info', $payment_info);
-            
-            
-            
+                        
             return redirect()->route('paymentpage');
-
-
 
         }else{
             return redirect()->route('products');
@@ -95,7 +97,7 @@ class PaymentsController extends Controller
     }
 
 
-/*---------------- dont work with localhost only when live ------*/
+    /*---------------- doesnt work with localhost only when live ------*/
 
     public function validate_payment($paypalPaymentID, $paypalPayerID)
     {
@@ -175,31 +177,32 @@ class PaymentsController extends Controller
     {
 
         if(!empty($paypalPaymentID) && !empty($paypalPayerID)){
-            //will return json -> contais apreved transaction status
+            //will return json -> contais aproved transaction status
         #   $this->validate_payment($paypalPaymentID, $paypalPayerID);        
             $this->storePaymentInfo($paypalPaymentID, $paypalPayerID);
 
+            $cart = Session::get('cart');
+            
             $payment_receipt = Session::get('payment_info');
             $payment_receipt['paypal_payment_id'] = $paypalPaymentID; 
             $payment_receipt['paypal_payer_id'] = $paypalPayerID;
 
+            $payment_info['order_id'] = $payment_receipt['order_id'];
+            $payment_info['item_id'] = $payment_receipt['item_id'];
+            $payment_info['item_name']= $payment_receipt['item_name'];
+            $payment_info['item_price'] = $payment_receipt['item_price'];
 
-            Session::forget('payment_info');
+            Session::forget('payment_info', 'cart');
+            Session::flush();
 
-            return view('payment.paymentreceipt', ['payment_receipt'=>$payment_receipt]);
-
-
-
-
-        }else{
-            return redirect()->route('products');
-        }
+            
+            return view('payment.paymentreceipt', ['payment_receipt'=>$payment_receipt, 'cart' => $cart])->with('success', 'Thank You for your Purchase!');
         
-
+        }else{
+            return redirect()->route('products')->with('success', 'Thank You for your Purchase!');
+        }
     }
-
-
-
+        
 
 
 }
