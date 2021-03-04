@@ -233,10 +233,13 @@ class ProductController extends Controller
     
     public function search(Request $request)
     {
+        
         $searchText = $request->get('searchText');
         $products = Product::where('name', 'Like', $searchText."%")->paginate(21);
 
         return view('allproducts', compact('products'));
+        
+
     }
 
 

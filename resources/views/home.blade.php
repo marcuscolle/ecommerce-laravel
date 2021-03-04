@@ -2,11 +2,12 @@
 @yield('center')
 
 
-<div class="container">
+<div class="container checkout">
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header">Welcome to the {{ __('Dashboard') }}</div>
+                <div class="card-header"><h4>Welcome to the {{ __('Dashboard') }}!</h4></div>
+                <hr>
                 <br>
 
 
@@ -18,8 +19,8 @@
                     @endif
 
                                        
-                    <p>{!! Auth::user()->name !!}</p>
-                    <p>email: {!! Auth::user()->email !!}</p>
+                    <h5>Hello! {!! Auth::user()->name !!}</h5>
+                    <p><strong>email:</strong> {!! Auth::user()->email !!}</p>
 
                     <a href="{{ route('products') }}" class="btn btn-primary">Main Website </a>
                     
@@ -31,7 +32,7 @@
                     @endif
                     
 
-                    </div>
+                </div>
             </div>
         </div>
     </div>
