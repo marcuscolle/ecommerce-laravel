@@ -19,7 +19,7 @@ class CreatePayments extends Migration
             $table->text('paypal_payment_id');
             $table->text('paypal_payer_id');
             $table->date('date');
-            $table->float('amount');
+            $table->decimal('amount', $precision = 8, $scale = 2);
 
             
         });
