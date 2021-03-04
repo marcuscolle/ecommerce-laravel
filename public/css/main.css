@@ -718,6 +718,11 @@ ul.sub-menu {
     background: #FE980F;
 }
 
+
+
+
+
+/********************************/
 .control-carousel {
     position: absolute;
     top: 50%;
@@ -728,6 +733,11 @@ ul.sub-menu {
 .control-carousel:hover {
     color: #FE980F;
 }
+
+
+
+
+
 
 .right {
     right: 0;

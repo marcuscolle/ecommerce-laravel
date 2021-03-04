@@ -7,6 +7,11 @@
         margin-bottom: 25px;
         text-align: center;
     }
+
+    img.carousel-img{
+        height: 350px;
+        width: 400px;
+    }
 }
 
 
@@ -35,6 +40,12 @@
     #cart_items .cart_info .cart_description h4,
     #cart_items .cart_info .cart_description p {
         text-align: center;
+    }
+
+
+    img.carousel-img{
+        height: 300px;
+        width: 350px;
     }
 }
 
@@ -116,6 +127,12 @@
         font-size: 12px;
         top: 5px;
     }
+
+    img.carousel-img{
+        height: 300px;
+        width: 300px;
+    }
+
 }
 
 
@@ -264,6 +281,12 @@
     }
     .well {
         display: inline-block;
+    }
+
+    img.carousel-img{
+        height: 200px;
+        width: 350px;
+        
     }
 }
 
@@ -484,5 +507,11 @@
     }
     .product-information span span {
         float: none;
+    }
+
+    img.carousel-img{
+        height: 150px;
+        width: 150px;
+        
     }
 }

@@ -69,26 +69,26 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <div class="col-sm-6">
-                            <img src="images/carousel/adidas.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/adidas.jpg"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                     </div>
                     <div class="item">
                         <div class="col-sm-6">
-                            <img src="images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/carousel/lacost-glass.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/lacost-glass.jpg"/>
                         </div>
                     </div>   
                     <div class="item">
                         <div class="col-sm-6">
-                            <img src="images/carousel/nike.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/nike.jpg"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                     </div>                    
                 </div>
