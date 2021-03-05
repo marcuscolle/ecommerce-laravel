@@ -9,8 +9,8 @@
     }
 
     img.carousel-img{
-        height: 350px;
-        width: 400px;
+        height: auto;
+        width: 100%;
     }
 }
 
@@ -44,8 +44,8 @@
 
 
     img.carousel-img{
-        height: 300px;
-        width: 350px;
+        height: auto;
+        width: 100%;
     }
 }
 
@@ -129,8 +129,8 @@
     }
 
     img.carousel-img{
-        height: 300px;
-        width: 300px;
+        height: auto;
+        width: 100%;
     }
 
 }
@@ -284,9 +284,8 @@
     }
 
     img.carousel-img{
-        height: 200px;
-        width: 350px;
-        
+        height: auto;
+        width: 100%;
     }
 }
 
@@ -510,8 +509,7 @@
     }
 
     img.carousel-img{
-        height: 150px;
-        width: 150px;
-        
+        height: auto;
+        width: 100%;
     }
 }
