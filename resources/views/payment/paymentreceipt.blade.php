@@ -1,7 +1,7 @@
 @include('layouts.header')
 @yield('center')
 
-<div class="container checkout">
+<div id="receipt" class="container checkout" style="border: 0.5px groove lightgray;">
     <div class="row">
         <div class="col-sm-12">
             <div class="text-center">
@@ -57,6 +57,9 @@
                     <hr>
                     <div class="text-center">
                         <a class="btn btn-primary" href="{{ route('products') }} ">Shop Again!</a>
+                   
+                        <a class="btn btn-primary" onclick="printDiv('receipt')">Print</a>
+                        
                     </div>
                 </div>
             </div>
@@ -64,6 +67,22 @@
       </div>  
     </div>
 </div>   
+
+
+<script>
+
+    function printDiv(receipt) {
+        var printContents = document.getElementById(receipt).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+}
+
+</script>
 
 @include('layouts.footer')
 

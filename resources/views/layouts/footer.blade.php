@@ -12,7 +12,7 @@
     </div>
     
     <div class="footer-widget">
-        <div class="container">
+        <div class="container foot">
             <div class="row">
                 <div class="col-sm-3">
                     <div class="single-widget">

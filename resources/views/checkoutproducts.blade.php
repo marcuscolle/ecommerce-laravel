@@ -14,14 +14,14 @@
                     <label for="first_name">First name</label>
                     <input type="text" class="form-control" id="first_name" name="first_name" placeholder="" value="" required>
                     <div class="invalid-feedback">
-                        Valid first name is required.
+                    
                     </div>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="last_name">Last name</label>
                     <input type="text" class="form-control" id="last_name" name="last_name" placeholder="" value="" required>
                     <div class="invalid-feedback">
-                        Valid last name is required.
+                    
                     </div>
                 </div>
             </div>
@@ -53,11 +53,12 @@
                 <label for="postcode">Postcode</label>
                 <input type="text" class="form-control" id="postcode" name="postcode" placeholder="" required>
                 <div class="invalid-feedback">
-                    Post code required.
+                
                 </div>
                 </div>
             </div>
-            
+            <br>
+            <hr>
             <div class="text-center">
                 <input class="btn btn-primary" type="submit" value="Submit">
             </div>    

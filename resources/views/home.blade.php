@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header"><h4>Welcome to the {{ __('Dashboard') }}!</h4></div>
+                <div class="card-header"><h4>Welcome to Login {{ __('Dashboard') }}!</h4></div>
                 <hr>
                 <br>
 

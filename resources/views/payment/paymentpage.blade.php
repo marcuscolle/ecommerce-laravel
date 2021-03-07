@@ -6,7 +6,7 @@
 
 
 
-    <div class="container checkout">
+    <div class="container checkout" style="border: 0.5px groove lightgray;">
         <div class="row">
             <div class="col-sm-12">
               <div class="text-center">

@@ -12,6 +12,13 @@
         height: auto;
         width: 100%;
     }
+
+    div.container.foot{
+        width:80%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
     
 }
 
@@ -48,6 +55,21 @@
         height: auto;
         width: 100%;
     }
+
+    div.container.checkout{
+        width:40%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    div.container.foot{
+        width:80%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
 }
 
 
@@ -132,6 +154,20 @@
     img.carousel-img{
         height: auto;
         width: 100%;
+    }
+
+    div.container.checkout{
+        width:40%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    div.container.foot{
+        width:80%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        
     }
 
 }
@@ -287,6 +323,20 @@
     img.carousel-img{
         height: auto;
         width: 100%;
+    }
+
+    div.container.checkout{
+        width:80%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    div.container.foot{
+        width:80%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        
     }
 }
 
@@ -512,5 +562,19 @@
     img.carousel-img{
         height: auto;
         width: 100%;
+    }
+
+    div.container.checkout{
+        width:80%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    div.container.foot{
+        width:80%;
+        margin-top: 15px;
+        margin-bottom: 25px;
+        
     }
 }
