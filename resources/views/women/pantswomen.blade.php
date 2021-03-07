@@ -69,26 +69,26 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <div class="col-sm-6">
-                            <img src="images/carousel/adidas.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/men-nike3.jpg"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                     </div>
                     <div class="item">
                         <div class="col-sm-6">
-                            <img src="images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/carousel/lacost-glass.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/men.jpg"/>
                         </div>
                     </div>   
                     <div class="item">
                         <div class="col-sm-6">
-                            <img src="images/carousel/nike.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/women-adidas2.jpg"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                     </div>                    
                 </div>
@@ -176,7 +176,6 @@
                                       <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
                                       <a href="{{ route('menShoes') }}">Mens Shoes</a>
                                       <a href="{{ route('womenShoes') }}">Women Shoes</a>
-                                      <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
                                     </div>
                                 </div>
                             </div>
@@ -274,8 +273,4 @@
 
 
 @include('layouts.footer')
-
-
-
-
 

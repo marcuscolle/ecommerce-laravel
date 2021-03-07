@@ -20,8 +20,8 @@
                         <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                             <ul role="menu" class="sub-menu">
                                 <li><a href="{{ route('products') }}">Products</a></li>
-                                <li><a href="{{ route('menProducts') }}">Men</a></li> 
-                                <li><a href="{{ route('womenProducts') }}">Women</a></li> 
+                                <li><a href="{{ route('menProducts') }}">Mens</a></li> 
+                                <li><a href="{{ route('womenProducts') }}">Womens</a></li> 
                                 <li><a href="{{ route('kids') }}">Kids</a></li> 
                                 <li><a href="{{ route('accessories') }}">Accessories</a></li>
                                 <li><a href="{{ route('shoes') }}">Shoes</a></li>  
@@ -69,28 +69,26 @@
                 <div class="carousel-inner">
                     <div class="item active">
                         <div class="col-sm-6">
-                            <img src="/images/carousel/adidas.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/men-nike3.jpg"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="/images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                     </div>
                     <div class="item">
                         <div class="col-sm-6">
-                            <img src="/images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="/images/carousel/lacost-glass.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/men.jpg"/>
                         </div>
-                    </div>
-                    
-                    
+                    </div>   
                     <div class="item">
                         <div class="col-sm-6">
-                            <img src="/images/carousel/nike.jpg" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/women-adidas2.jpg"/>
                         </div>
                         <div class="col-sm-6">
-                            <img src="/images/carousel/sale.png" width="400" height="350" />
+                            <img class="carousel-img" src="images/carousel/sale.png"/>
                         </div>
                     </div>                    
                 </div>
@@ -101,8 +99,7 @@
                 <a href="#slider-carousel" class="right control-carousel hidden-xs" data-slide="next">
                     <i class="fa fa-angle-right"></i>
                 </a>
-            </div>
-            
+            </div>        
         </div>
     </div>
 </div>
@@ -117,27 +114,71 @@
                 <div class="panel-group category-products" id="accordian"><!--category-productsr-->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="{{ route('menProducts') }}">Men</a></h4>
+                            <div class="mainmenu pull-left">
+                                <div class="dropdown">
+                                    <a class="dropbtn">Mens</a>
+                                    <div class="dropdown-content">
+                                      <a href="{{ route('menProducts') }}">All</a>
+                                      <a href="{{ route('menPants') }}">Pants</a>
+                                      <a href="{{ route('menShoes') }}">Shoes</a>
+                                      <a href="{{ route('menShorts') }}">Shorts</a>
+                                      <a href="{{ route('menShirts') }}">T-Shirts</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="{{ route('womenProducts') }}">Women</a></h4>
+                            <div class="mainmenu pull-left">
+                                <div class="dropdown">
+                                    <a class="dropbtn">Women</a>
+                                    <div class="dropdown-content">
+                                      <a href="{{ route('womenProducts') }}">All</a>
+                                      <a href="{{ route('womenDress') }}">Dress</a>
+                                      <a href="{{ route('womenPants') }}">Pants</a>
+                                      <a href="{{ route('womenShoes') }}">Shoes</a>
+                                      <a href="{{ route('womenShirts') }}">T-Shirts</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="{{ route('kids') }}">Kids</a></h4>
+                            <div class="mainmenu pull-left">
+                                <div class="dropdown">
+                                    <a class="dropbtn">Kids</a>
+                                    <div class="dropdown-content">
+                                      <a href="{{ route('kids') }}">Shoes</a>
+                                      <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="{{ route('accessories') }}">Accessories</a></h4>
+                            <div class="mainmenu pull-left">
+                                <div class="dropdown">
+                                    <a class="dropbtn" href="{{ route('accessories') }}">Accessories</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h4 class="panel-title"><a href="{{ route('shoes') }}">Shoes</a></h4>
+                            <div class="mainmenu pull-left">
+                                <div class="dropdown">
+                                    <a class="dropbtn">Shoes</a>
+                                    <div class="dropdown-content">
+                                      <a href="{{ route('shoes') }}">All</a>
+                                      <a href="{{ route('kidsShoes') }}">Kids Shoes</a>
+                                      <a href="{{ route('menShoes') }}">Mens Shoes</a>
+                                      <a href="{{ route('womenShoes') }}">Women Shoes</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div><!--/category-products-->
@@ -149,14 +190,14 @@
                             <li><a href="#"> <span class="pull-right"></span>Adidas</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Nike</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Puma</a></li>
-                            <li><a href="#"> <span class="pull-right"></span>The Noth Face</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>The North Face</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Polo</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Levis</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Super Dry</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Jack Jones</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Vans</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Gap</a></li>
-                            <li><a href="#"> <span class="pull-right"></span>Lacost</a></li>
+                            <li><a href="#"> <span class="pull-right"></span>Lacoste</a></li>
                             <li><a href="#"> <span class="pull-right"></span>Converse</a></li>                           
                         </ul>
                     </div>
@@ -189,7 +230,7 @@
                             <div class="single-products">
 
                                     <div class="productinfo text-center">                              
-                                        <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" width="200" height="150" />
+                                        <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" width="300" height="200" />
                                         <h2>{{ $product->price }}</h2>
                                         <p>{{ $product->name }}</p>
                                         <p>{{ $product->brand }}</p>
@@ -210,13 +251,21 @@
                             </div>
                         </div>
                     </div>
-                @endforeach           
+                @endforeach                
 <!---------------------------------------------end foreach of the products------------------------------------------------>
-            </div><!--features_items-->
-            <div class="pagination"> 
-                {{ $products->links() }}
-            </div>            
+            </div><!--features_items-->         
         </div>
+
+
+
+        <!------pagination added to the center of the screen page container/row, not on loop div page col-sm-9------>
+        <div class="text-center">
+            <div class="pagination col-sm-12"> 
+                {{ $products->links('pagination::bootstrap-4') }}
+            </div>  
+        </div> 
+
+
     </div>
 </div>
 </section>
