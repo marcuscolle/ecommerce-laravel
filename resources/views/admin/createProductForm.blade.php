@@ -45,8 +45,8 @@
                 </div>
 
 
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-                <a class="btn brn-primary" href="{{ route('adminDisplayProducts') }}"> Back </a>
+                <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                <a class="btn btn-primary" href="{{ route('adminDisplayProducts') }}"> Back </a>
             </form>    
         </div>    
     </div>    
