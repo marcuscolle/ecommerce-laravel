@@ -42,18 +42,20 @@ class AdminProductsController extends Controller
 
 
         $graph = DB::table('payments')->select(
+                    DB::raw('YEAR(date) as year'),
                     DB::raw('MONTH(date) as month'),
                     DB::raw('SUM(amount) as sum')
                 )
-                ->whereYear('date', '=', Carbon::now()->month)
-                ->groupBy('month')
+                ->whereYear('date', '=', Carbon::now()->year)
+                ->orWhereYear('date', '=', Carbon::now()->subYear()->year)
+                ->groupBy('year', 'month')
                 ->get();  
         
 
         return view('admin.dashboard', ['earnings' => $earnings, 
                                         'order_number' => $order_number,
                                         'register_users' => $register_users,
-                                        'graph' => $graph]);
+                                        'graph' => $graph ]);
 
 
     }

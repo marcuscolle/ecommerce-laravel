@@ -66,7 +66,6 @@
     </div>
 </div>
 
-
 <div class="container my-4">
     <hr class="my-4">
 
@@ -80,6 +79,7 @@
 </div>
 
 
+{{ dd($graph)}}
 
 <script>
 //pie
