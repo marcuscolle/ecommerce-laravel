@@ -67,11 +67,11 @@
 </div>
 
 <div class="container my-4">
-    <hr class="my-4">
+        <hr class="my-4">
 
     <p> Sales by Month </p>
 
-    <hr class="my-4">
+        <hr class="my-4">
 
     <div>
       <canvas id="pieChart" style="max-width: 500px;"></canvas>
@@ -79,17 +79,19 @@
 </div>
 
 
-{{ dd($graph)}}
 
 <script>
 //pie
     var ctxP = document.getElementById("pieChart").getContext('2d');
     var myPieChart = new Chart(ctxP, {
-      type: 'bar',
+      type: 'horizontalBar',
+      
       data: {
-        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+        labels: ["{{ $graph[0]->month }}", "{{ $graph[1]->month}}"],
+       
         datasets: [{
-          data: [300, 50, 100, 40, 120],
+          data: [ {{ $graph[0]->sum }}, {{ $graph[1]->sum }} ],
+
           backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
           hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
         }]
