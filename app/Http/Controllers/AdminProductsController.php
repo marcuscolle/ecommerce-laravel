@@ -32,7 +32,17 @@ class AdminProductsController extends Controller
     ///Admin Dashboard page
     public function dashboard()
     {
-        return view('admin.dashboard');
+
+        $earnings = DB::table('payments')->sum('amount');
+
+        $order_number = DB::table('orders')->where('status', 'paid')->count();
+
+        $register_users = DB::table('users')->count();
+        
+
+        return view('admin.dashboard', ['earnings' => $earnings, 
+                                        'order_number' => $order_number,
+                                        'register_users' => $register_users]);
 
 
     }
@@ -210,10 +220,6 @@ class AdminProductsController extends Controller
 
 
 
-
-
-    
-
     
     public function orders()
     {
@@ -239,17 +245,6 @@ class AdminProductsController extends Controller
         return view('admin.earnings', ['earnings' => $earnings]);
 
     }
-
-
-/*-----
-return $this->model->get(['id', 'created_at'])->groupBy(function($date) {
-    return Carbon::parse($date->created_at)->format('m');
-});
-
------*/
-
-
-
 
 }
 

@@ -5,7 +5,7 @@
     <div class="row">
         <div>
             <h3> Create New Product </h3>
-            <form action="/admin/newProductForm" method="post" enctype="multipart/form-data">
+            <form action="/admin/newProductForm" method="post" enctype="multipart/form-data" class="adminpanel">
                 @csrf
 
                 <div class="form-group"> 
