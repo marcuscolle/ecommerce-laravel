@@ -31,7 +31,7 @@ class ProductController extends Controller
 
         $products = Product::paginate(15);
 
-        return view('index', compact('products'));
+        return view('allproducts', compact('products'));
     }
 
 
@@ -237,7 +237,7 @@ class ProductController extends Controller
         $searchText = $request->get('searchText');
         $products = Product::where('name', 'Like', $searchText."%")->paginate(21);
 
-        return view('index', compact('products'));
+        return view('allproducts', compact('products'));
         
 
     }
