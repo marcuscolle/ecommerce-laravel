@@ -24,7 +24,7 @@ class AdminProductsController extends Controller
     {
         //display all products in admin page
         // 2 is the number os items displayed by page
-        $products = Product::paginate(20);
+        $products = Product::paginate(10);
 
         return view('admin.displayProducts', ['products' => $products]);
     }
@@ -236,7 +236,7 @@ class AdminProductsController extends Controller
     
     public function orders()
     {
-        $orders = DB::table('orders')->paginate(12);
+        $orders = DB::table('orders')->paginate(10);
         
         return view('admin.orders', ['orders' => $orders]);
 
@@ -244,7 +244,7 @@ class AdminProductsController extends Controller
 
     public function customers()
     {
-        $customers = DB::table('orders')->get();
+        $customers = DB::table('orders')->paginate(10);
 
         return view('admin.customers', ['customers' => $customers]);
 

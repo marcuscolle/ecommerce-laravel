@@ -52,9 +52,11 @@
                 </table>  
 
                 <!---- function links show pagination numbers and arrows to "turn the page"  ------->
-                <div class="pagination"> 
-                  {{$products->links()}}
-                </div>
+                <div class="text-center">
+                  <div class="pagination col-sm-12"> 
+                      {{ $products->links('pagination::bootstrap-4') }}
+                  </div>  
+                </div> 
 
               </div>
         </div>

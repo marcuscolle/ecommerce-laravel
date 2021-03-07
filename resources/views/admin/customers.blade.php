@@ -21,14 +21,14 @@
                     </thead>
                     <tbody>
             
-                        @foreach($customers as $customers)
+                        @foreach($customers as $customer)
                         <tr>
-                            <td>{{ $customers->first_name }}</td>
-                            <td>{{ $customers->last_name }}</td>
-                            <td>{{ $customers->address }}</td>
-                            <td>{{ $customers->postcode }}</td>
-                            <td>{{ $customers->email }}</td>
-                            <td>{{ $customers->phone }}</td>                                                   
+                            <td>{{ $customer->first_name }}</td>
+                            <td>{{ $customer->last_name }}</td>
+                            <td>{{ $customer->address }}</td>
+                            <td>{{ $customer->postcode }}</td>
+                            <td>{{ $customer->email }}</td>
+                            <td>{{ $customer->phone }}</td>                                                   
                         </tr>
                         @endforeach  
             
@@ -37,11 +37,13 @@
                 </table>  
 
                 <!---- function links show pagination numbers and arrows to "turn the page"  ------->
-                
+                <div class="text-center">
+                  <div class="pagination col-sm-12"> 
+                      {{ $customers->links('pagination::bootstrap-4') }}
+                  </div>  
+                </div> 
               </div>
         </div>
-      
-        <a class="btn brn-primary" href="{{ route('dashboard') }}"> Back </a>
       </div>   
     </body>
 </html>

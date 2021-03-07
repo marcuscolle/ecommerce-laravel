@@ -47,11 +47,14 @@
                 </table>  
 
                 <!---- function links show pagination numbers and arrows to "turn the page"  ------->
-                {{ $orders->links() }}
+                <div class="text-center">
+                  <div class="pagination col-sm-12"> 
+                      {{ $orders->links('pagination::bootstrap-4') }}
+                  </div>  
+                </div> 
 
               </div>
         </div>
-        <a class="btn brn-primary" href="{{ route('dashboard') }}"> Back </a>
       </div>          
     </body>
 </html>

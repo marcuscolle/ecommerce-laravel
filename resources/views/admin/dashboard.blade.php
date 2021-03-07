@@ -92,8 +92,8 @@
         datasets: [{
           data: [ {{ $graph[0]->sum }}, {{ $graph[1]->sum }} ],
 
-          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
-          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+          backgroundColor: ["#0DDDFD", "#79E472"],
+          hoverBackgroundColor: ["#0FC6E2", "#54CE4C"]
         }]
       },
       options: {
