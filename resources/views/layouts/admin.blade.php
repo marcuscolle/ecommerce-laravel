@@ -72,43 +72,43 @@
         <ul class="nav flex-column">
             <li class="nav-item">
                 <a class="nav-link active" style="color:black;" aria-current="page" href="{{ route('products') }}">
-                  <span data-feather="home"></span>
+                  <i class="fas fa-home fa-1x"></i>
                   Website
                 </a>
               </li>  
           <li class="nav-item">
             <a class="nav-link active" style="color:black;" aria-current="page" href="{{ route('dashboard') }}">
-              <span data-feather="home"></span>
-              Dashboard
+              
+              <i class="fas fa-tachometer-alt fa-1x"></i> Dashboard 
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:black;" href="/admin/createProductForm">
-              <span data-feather="shopping-cart"></span>
-              Create New Poduct
+              
+              <i class="fas fa-plus fa-1x"></i> Create New Poduct
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:black;" href="{{ route('orders') }}">
-              <span data-feather="file"></span>
+              <i class="fas fa-file-invoice fa-1x"></i>
               Orders
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:black;" href="{{ route('adminDisplayProducts') }}">
-              <span data-feather="shopping-cart"></span>
+              <i class="fas fa-list-ol fa-1x"></i>
               Products
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:black;" href="{{ route('customers') }}">
-              <span data-feather="users"></span>
+              <i class="fas fa-user-tie 1x"></i>
               Customers
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" style="color:black;" href="{{ route('earnings') }}">
-              <span data-feather="bar-chart-2"></span>
+              <i class="fas fa-hand-holding-usd fa-1x"></i>
               Earnings
             </a>
           </li>
