@@ -55,7 +55,7 @@
                     <hr>
                     <h4><strong>Total Paid:</strong> £{{ $payment_receipt['price'] }} </h4>
                     <hr>
-                    <div class="text-center">
+                    <div class="text-center butt">
                         <a class="btn btn-primary" href="{{ route('products') }} ">Shop Again!</a>
                    
                         <a class="btn btn-primary" onclick="printDiv('receipt')">Print</a>
