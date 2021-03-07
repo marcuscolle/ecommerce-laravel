@@ -8,7 +8,6 @@
               <div class="card-body">
                 <div class="d-flex flex-md-column flex-xl-row flex-wrap justify-content-between align-items-md-center justify-content-xl-between">
                   <div class="float-left">
-                    
                     <span style="font-size: 70px; color: rgba(10, 150, 33, 0.822);">
                         <i class="fas fa-hand-holding-usd"></i>
                     </span>
@@ -20,7 +19,7 @@
                     </div>
                   </div>
                 </div>
-                <p>...</p>
+                <p>Earning to date</p>
               </div>
             </div>
         </div>
@@ -40,7 +39,7 @@
                     </div>
                   </div>
                 </div>
-                <p>...</p>
+                <p>Orders to date</p>
               </div>
             </div>
         </div>
@@ -60,9 +59,44 @@
                     </div>
                   </div>
                 </div>
-                <p>...</p>
+                <p>Customers registered to date</p>
               </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<div class="container my-4">
+    <hr class="my-4">
+
+    <p> Sales by Month </p>
+
+    <hr class="my-4">
+
+    <div>
+      <canvas id="pieChart" style="max-width: 500px;"></canvas>
+    </div>
+</div>
+
+
+
+<script>
+//pie
+    var ctxP = document.getElementById("pieChart").getContext('2d');
+    var myPieChart = new Chart(ctxP, {
+      type: 'bar',
+      data: {
+        labels: ["Red", "Green", "Yellow", "Grey", "Dark Grey"],
+        datasets: [{
+          data: [300, 50, 100, 40, 120],
+          backgroundColor: ["#F7464A", "#46BFBD", "#FDB45C", "#949FB1", "#4D5360"],
+          hoverBackgroundColor: ["#FF5A5E", "#5AD3D1", "#FFC870", "#A8B3C5", "#616774"]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+</script>

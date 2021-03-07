@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class AdminProductsController extends Controller
 {
@@ -38,11 +39,21 @@ class AdminProductsController extends Controller
         $order_number = DB::table('orders')->where('status', 'paid')->count();
 
         $register_users = DB::table('users')->count();
+
+
+        $graph = DB::table('payments')->select(
+                    DB::raw('MONTH(date) as month'),
+                    DB::raw('SUM(amount) as sum')
+                )
+                ->whereYear('date', '=', Carbon::now()->month)
+                ->groupBy('month')
+                ->get();  
         
 
         return view('admin.dashboard', ['earnings' => $earnings, 
                                         'order_number' => $order_number,
-                                        'register_users' => $register_users]);
+                                        'register_users' => $register_users,
+                                        'graph' => $graph]);
 
 
     }
