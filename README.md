@@ -1,4 +1,4 @@
-# This website has been hosted as a live project, but its missing aws s3 bucket to host files(pictures) and some last adjustments.
+# This website has been hosted as a live project, but its missing aws s3 bucket to host files(images) and some last adjustments.
 
 
 
