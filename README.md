@@ -1,4 +1,6 @@
-# This website has been hosted as a live project, but its missing aws s3 bucket to host files(images) and some last adjustments.
+# Web is hosted and live! click on the link and check it out!
+### https://ecomm-laravel.herokuapp.com/
+
 
 
 
