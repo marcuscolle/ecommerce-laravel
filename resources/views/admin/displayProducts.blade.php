@@ -32,7 +32,7 @@
                             <!----other way to display the image would be
                               {asset('storage')} / product_images / {$product['image']}
                             ----->
-                            <td><img src="{{ Storage::url("product_images/" . $product['image']) }}" width="100" height="100"></td>
+                            <td><img src="{{Storage::disk('s3')->url('public/product_images/' . $product['image'])}}" width="100" height="100"></td>
                             <td>{{ $product['name'] }}</td>
                             <td>{{ $product['description'] }}</td>
                             <td>{{ $product['price'] }}</td>

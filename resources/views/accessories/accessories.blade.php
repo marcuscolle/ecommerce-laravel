@@ -14,7 +14,7 @@
                         <span class="icon-bar"></span>
                     </button>
                 </div>
-                <div class="mainmenu pull-left">
+                <div class="mainmenu pull-left dorpdown-content">
                     <ul class="nav navbar-nav collapse navbar-collapse">
                         <li><a href="{{ route('products') }}" class="active">Home</a></li>
                         <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
@@ -207,7 +207,7 @@
                     <h2>Price Range</h2>
                     <div class="well text-center">
                          <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2" ><br />
-                         <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                         <b class="pull-left">£ 0</b> <b class="pull-right">£ 600</b>
                     </div>
                 </div><!--/price-range-->
                 
@@ -230,7 +230,7 @@
                             <div class="single-products">
 
                                     <div class="productinfo text-center">                              
-                                        <img src="{{Storage::disk('local')->url('product_images/' . $product->image)}}" width="300" height="200" />
+                                        <img src="{{Storage::disk('s3')->url('public/product_images/' . $product->image)}}" width="300" height="200" />
                                         <h2>{{ $product->price }}</h2>
                                         <p>{{ $product->name }}</p>
                                         <p>{{ $product->brand }}</p>
@@ -248,6 +248,7 @@
                                             <a href="{{route('AddToCartProduct', ['id'=>$product->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                         </div>
                                     </div>
+                                    
                             </div>
                         </div>
                     </div>
@@ -273,4 +274,3 @@
 
 
 @include('layouts.footer')
-

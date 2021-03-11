@@ -47,7 +47,7 @@ h6 {
 }
 
 .navbar-toggle {
-    background-color: #000;
+    background-color: #FE980F;
 }
 
 a#scrollUp {
@@ -69,6 +69,9 @@ div.text-center.butt {
     text-align: center;
     margin-bottom: 10px;
 }
+
+
+
 
 
 
@@ -269,7 +272,7 @@ div.text-center.butt {
 }
 
 .btn-group.open .dropdown-toggle {
-    background: rgba(0, 0, 0, 0);
+    background: #696763;
     -webkit-box-shadow: none;
     box-shadow: none;
 }

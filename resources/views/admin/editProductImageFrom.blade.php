@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row">
         <div>
-            <img src="{{asset('storage')}}/product_images/{{$product['image'] }}" width="100" height="100">
+            <img src="{{Storage::disk('s3')->url('public/product_images/' . $product['image'])}}" width="100" height="100">
 
             <form action="{{route('adminUpdateProductImage', ['id'=>$product->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf

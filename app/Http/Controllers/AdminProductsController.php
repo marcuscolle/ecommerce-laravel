@@ -97,7 +97,7 @@ class AdminProductsController extends Controller
 
             $product = Product::find($id);
             // this will return true or false, if image exists = true otherwise false!
-            $exists = Storage::disk('local')->exists('public/product_images/'. $product->image);
+            $exists = Storage::disk('s3')->exists('public/product_images/'. $product->image);
 
             // this if will delete the old image
             if($exists){
@@ -185,7 +185,7 @@ class AdminProductsController extends Controller
         $imageName = $request->file('image')->getClientOriginalName();
         $imageEncoded = File::get($request->image);
 
-        Storage::disk('local')->put('public/product_images/'.$imageName, $imageEncoded);
+        Storage::disk('s3')->put('public/product_images/'.$imageName, $imageEncoded);
 
         $newProductArray = array('name' => $name,
                                  'description' => $description,
@@ -216,11 +216,11 @@ class AdminProductsController extends Controller
 
         $product = Product::find($id);
 
-        $exists = Storage::disk('local')->exists('public/product_images/'. $product->image);
+        $exists = Storage::disk('s3')->exists('public/product_images/'. $product->image);
 
         // this if will delete the old image
         if($exists){
-            Storage::delete('public/product_images/' . $product->image );
+            Storage::disk('s3')->delete('public/product_images/' . $product->image );
 
         }
 
