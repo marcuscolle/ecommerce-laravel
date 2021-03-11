@@ -230,7 +230,7 @@
                             <div class="single-products">
 
                                     <div class="productinfo text-center">                              
-                                        <img src="{{Storage::disk('s3')->url('https://ecomm-laravel.s3.eu-west-2.amazonaws.com/'.'/public/product_images/' . $product->image)}}" width="300" height="200" />
+                                        <img src="{{Storage::disk('s3')->url('/public/product_images/' . $product->image)}}" width="300" height="200" />
                                         <h2>{{ $product->price }}</h2>
                                         <p>{{ $product->name }}</p>
                                         <p>{{ $product->brand }}</p>
