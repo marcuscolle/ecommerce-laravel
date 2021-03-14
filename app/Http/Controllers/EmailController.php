@@ -11,28 +11,24 @@ use Illuminate\Support\Facades\Session;
 class EmailController extends Controller
 {
     public function sendmail(Request $request){
+   
 
             $cart = Session::get('cart');
-            
             $payment_receipt = Session::get('payment_info');
 
-           
-            
-            $payment_info['order_id'] = $payment_receipt['order_id'];
-            $payment_info['item_id'] = $payment_receipt['item_id'];
-            $payment_info['item_name']= $payment_receipt['item_name'];
-            $payment_info['item_price'] = $payment_receipt['item_price'];
+          #  app()->call('App\Http\Controllers\PaymentsController@paymentreceipt');
 
             $payment_info['first_name'] =  $payment_receipt['first_name'];
             $payment_info['last_name'] =  $payment_receipt['last_name'];
             $payment_info['email'] =  $payment_receipt['email'];
+            
             
  
   
          try{
              Mail::send('email', $payment_receipt, function($message)use($payment_receipt) {
              $message->to($payment_receipt['email'])
-             ->subject($payment_receipt['first_name'] . "" . $payment_receipt['last_name']);
+             ->subject($payment_receipt['first_name'] . " " . $payment_receipt['last_name']);
              
              });
 
@@ -52,7 +48,10 @@ class EmailController extends Controller
          }
 
         
-        return view('payment.paymentreceipt', ['payment_receipt'=>$payment_receipt, 'cart' => $cart]);
-         
-     }
+             Session::forget('payment_info', 'cart');
+             Session::flush();
+
+            return view('payment.paymentreceipt', ['payment_receipt'=>$payment_receipt, 'cart' => $cart]);
+        }
+    
 }

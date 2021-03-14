@@ -193,13 +193,8 @@ class PaymentsController extends Controller
             $payment_info['item_name']= $payment_receipt['item_name'];
             $payment_info['item_price'] = $payment_receipt['item_price'];
 
-           # app()->sendmail();
+          #  app()->sendmail();
             app()->call('App\Http\Controllers\EmailController@sendmail');
-
-            
-            Session::forget('payment_info', 'cart');
-            Session::flush();
-
             
             return view('payment.paymentreceipt', ['payment_receipt'=>$payment_receipt, 'cart' => $cart])->with('success', 'Thank You for your Purchase!');
            # return view('email', ['payment_receipt'=>$payment_receipt, 'cart' => $cart]);
