@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminProductController;
 use App\http\Controllers\PaymentsController;
+use App\http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -166,29 +167,33 @@ Route::get('admin/earnings', [App\Http\Controllers\AdminProductsController::clas
 
 
 // Display Edit Product From
-Route::get('admin/editProductForm/{id}', [App\Http\Controllers\AdminProductsController::class, 'editProductForm'])->name('adminEditProductForm')->middleware('restrictToAdmin');;
+Route::get('admin/editProductForm/{id}', [App\Http\Controllers\AdminProductsController::class, 'editProductForm'])->name('adminEditProductForm')->middleware('restrictToAdmin');
 
 // Display Product Image Form
-Route::get('admin/editProductImageForm/{id}', [App\Http\Controllers\AdminProductsController::class, 'editProductImageForm'])->name('adminEditProductImageForm')->middleware('restrictToAdmin');;
+Route::get('admin/editProductImageForm/{id}', [App\Http\Controllers\AdminProductsController::class, 'editProductImageForm'])->name('adminEditProductImageForm')->middleware('restrictToAdmin');
 
 // Update Product Image
-Route::post('admin/updateProductImage/{id}', [App\Http\Controllers\AdminProductsController::class, 'updateProductImage'])->name('adminUpdateProductImage')->middleware('restrictToAdmin');;
+Route::post('admin/updateProductImage/{id}', [App\Http\Controllers\AdminProductsController::class, 'updateProductImage'])->name('adminUpdateProductImage')->middleware('restrictToAdmin');
 
 // Update Product Details
-Route::post('admin/updateProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'updateProduct'])->name('adminUpdateProduct')->middleware('restrictToAdmin');;
+Route::post('admin/updateProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'updateProduct'])->name('adminUpdateProduct')->middleware('restrictToAdmin');
 
 
 
 
 
 // Display Create Product From
-Route::get('admin/createProductForm', [App\Http\Controllers\AdminProductsController::class, 'createProductForm'])->name('adminCreateProductForm')->middleware('restrictToAdmin');;
+Route::get('admin/createProductForm', [App\Http\Controllers\AdminProductsController::class, 'createProductForm'])->name('adminCreateProductForm')->middleware('restrictToAdmin');
 
 // Create New Product
-Route::post('admin/newProductForm', [App\Http\Controllers\AdminProductsController::class, 'newProductForm'])->name('adminNewProductForm')->middleware('restrictToAdmin');;
+Route::post('admin/newProductForm', [App\Http\Controllers\AdminProductsController::class, 'newProductForm'])->name('adminNewProductForm')->middleware('restrictToAdmin');
 
 // Delete Product
-Route::get('admin/deleteProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'deleteProduct'])->name('adminDeleteProduct')->middleware('restrictToAdmin');;
+Route::get('admin/deleteProduct/{id}', [App\Http\Controllers\AdminProductsController::class, 'deleteProduct'])->name('adminDeleteProduct')->middleware('restrictToAdmin');
 
 
 
+
+
+// Contact Email
+Route::get('email', [App\Http\Controllers\EmailController::class, 'sendmail'])->name('sendmail');

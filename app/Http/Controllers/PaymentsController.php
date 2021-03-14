@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Http\Controllers\EmailController;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Arr;
@@ -192,12 +193,16 @@ class PaymentsController extends Controller
             $payment_info['item_name']= $payment_receipt['item_name'];
             $payment_info['item_price'] = $payment_receipt['item_price'];
 
+           # app()->sendmail();
+            app()->call('App\Http\Controllers\EmailController@sendmail');
+
+            
             Session::forget('payment_info', 'cart');
             Session::flush();
 
             
             return view('payment.paymentreceipt', ['payment_receipt'=>$payment_receipt, 'cart' => $cart])->with('success', 'Thank You for your Purchase!');
-        
+           # return view('email', ['payment_receipt'=>$payment_receipt, 'cart' => $cart]);
         }else{
             return redirect()->route('products')->with('success', 'Thank You for your Purchase!');
         }
